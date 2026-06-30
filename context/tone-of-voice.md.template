@@ -1,0 +1,76 @@
+# Tone of Voice — [NAZWA FIRMY]
+
+## Charakter głosu (4-5 atrybutów)
+
+Opisz każdy atrybut jako spektrum: [co robimy] nie [czego unikamy].
+
+1. **[np. Bezpośredni]** — mówimy wprost co działa, bez owijania w bawełnę. Nie: agresywny ani nieuprzejmy.
+2. **[np. Oparty na danych]** — każde twierdzenie ma dowód lub przykład. Nie: suchy i nudny.
+3. **[np. Ekspercki ale dostępny]** — piszemy dla ekspertów, ale nie po to żeby ich zaskoczyć. Nie: akademicki ani hermetyczny.
+4. **[np. Praktyczny]** — każdy artykuł musi dać coś do zrobienia już dziś. Nie: teoretyzujący.
+5. **[opcjonalnie: np. Szczery]** — przyznajemy kiedy coś jest trudne lub niepewne. Nie: sprzedażowy.
+
+## Persona "idealnego autora"
+
+[Opisz kto "pisze" te artykuły — jakie ma doświadczenie, jak myśli, co ceni]
+Przykład: "Kierownik produkcji z 15 latami doświadczenia który przeszedł cyfrową transformację i teraz
+chętnie dzieli się lekcjami. Mówi o błędach równie chętnie co o sukcesach. Nie używa buzzwordów."
+
+## Reguły stylistyczne
+
+**Zdania:**
+- Maksymalna długość zdania: [np. 25 słów]
+- Preferowana długość akapitu: [np. 2-4 zdania]
+- Stosuj aktywną stronę — [np. "System wykrywa błąd" nie "Błąd jest wykrywany przez system"]
+
+**Liczby i dane:**
+- [np. Zawsze podawaj liczby cyframi, nie słownie: "3 tygodnie" nie "trzy tygodnie"]
+- [np. Zaokrąglaj do jednego miejsca po przecinku max]
+
+**Format:**
+- [np. Listy zamiast długich wyliczeniówek w tekście]
+- [np. Bold dla kluczowych terminów przy pierwszym użyciu]
+- [np. Tabele zamiast porównań w tekście]
+
+## Słowa zakazane
+
+Lista słów i fraz których NIGDY nie używamy:
+- "Kompleksowy" / "kompleksowo"
+- "Holistyczne podejście"
+- "W dzisiejszych czasach"
+- "Warto zaznaczyć że"
+- "Jest to niezwykle ważne"
+- "Innowacyjny" (chyba że dosłownie)
+- [dodaj własne]
+
+## Słowa preferowane (styl klienta)
+
+Terminy i sformułowania które pasują do marki:
+- [np. "wdrożenie" zamiast "implementacja"]
+- [np. "zespół" zamiast "pracownicy"]
+- [np. "wynik" zamiast "efekt"]
+
+## Przykłady — dobre vs. złe zdanie
+
+### Dobre (DO)
+
+1. "[Konkretny przykład dobrego zdania z kontekstem biznesowym]"
+2. "[Zdanie które pokazuje voice — bezpośrednie, z liczbą lub przykładem]"
+3. "[Zdanie które zaczyna się od problemu/kosztu, nie od rozwiązania]"
+4. "[Zdanie eksperckie ale przystępne]"
+5. "[Zdanie które przyznaje trudność lub kompromis]"
+
+### Złe (DON'T)
+
+1. "[Genericznie brzmące zdanie pełne buzzwordów]"
+2. "[Zdanie pasywne, bezosobowe]"
+3. "[Zdanie które mówi co zrobić ale nie dlaczego]"
+4. "[Zdanie marketingowe bez dowodu]"
+5. "[Zdanie które zakłada wiedzę której czytelnik nie ma]"
+
+## Specyfika formatu blogowego
+
+- Otwierający akapit: zawsze problem lub liczba, nigdy definicja tematu
+- Sekcje: każda ma podtytuł (H2/H3) + jeden konkretny takeaway
+- Closing: konkretny next step dla czytelnika, nie "skontaktuj się z nami"
+- CTA w artykule: max 1 softowy (np. link do narzędzia), nie sprzedażowy

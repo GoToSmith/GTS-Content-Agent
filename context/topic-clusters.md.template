@@ -1,0 +1,78 @@
+# Topic Clusters — [NAZWA KLIENTA]
+
+Ostatnia aktualizacja: [YYYY-MM-DD]
+Generowane przez: keyword-research skill (workflow 01)
+
+---
+
+## Jak używać tego pliku
+
+- `Status: queued` = w kolejce do produkcji
+- `Status: in-progress` = artykuł w trakcie pisania
+- `Status: published` = opublikowany (URL poniżej)
+- Kolejność w tabeli = rekomendowany priorytet produkcji
+
+---
+
+## Pillar 1: [Główny temat 1]
+
+**Pillar page keyword:** [fraza główna]
+**Intent:** Informational
+**Business fit:** 5/5 — [uzasadnienie jednozdaniowe]
+**Status:** queued
+
+### Cluster keywords:
+
+| Keyword | Intent | Difficulty | Business Fit | Status | URL (po publikacji) |
+|---------|--------|------------|--------------|--------|---------------------|
+| [fraza 1] | INFO | Low | 5 | queued | — |
+| [fraza 2] | COMM | Medium | 4 | queued | — |
+| [fraza 3] | INFO | Low | 5 | queued | — |
+| [fraza 4] | COMM | Low | 4 | queued | — |
+| [fraza 5] | INFO | Medium | 3 | queued | — |
+
+**Internal link plan:**
+- Wszystkie cluster articles linkują do: [URL pillar page lub "do stworzenia"]
+- Pillar page linkuje do: [cluster 1 URL], [cluster 2 URL], ...
+
+---
+
+## Pillar 2: [Główny temat 2]
+
+**Pillar page keyword:** [fraza główna]
+**Intent:** Informational
+**Business fit:** 4/5
+**Status:** queued
+
+### Cluster keywords:
+
+| Keyword | Intent | Difficulty | Business Fit | Status | URL (po publikacji) |
+|---------|--------|------------|--------------|--------|---------------------|
+| [fraza 1] | INFO | Low | 4 | queued | — |
+| [fraza 2] | INFO | Medium | 4 | queued | — |
+
+---
+
+## Pillar 3: [Główny temat 3]
+
+[...]
+
+---
+
+## Kolejka produkcji — recommended order
+
+Kolejność uwzględnia: difficulty (najpierw Low), business fit (najpierw 5), search intent (pillar przed cluster).
+
+1. [Keyword] — Pillar 1, Low difficulty, fit 5
+2. [Keyword] — Pillar 1 cluster, Low difficulty, fit 5
+3. [Keyword] — Pillar 2, Low difficulty, fit 4
+4. [...]
+
+---
+
+## Statystyki
+
+- Łączna liczba keywords w kolejce: [X]
+- Opublikowanych: [X]
+- W trakcie: [X]
+- Szacowany czas produkcji @ 3 artykuły/tydzień: [X] tygodni
