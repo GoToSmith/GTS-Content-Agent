@@ -1,194 +1,243 @@
-# SEO Content Engine — Claude Code Context Layer
+# SEO Content Engine
 
-Klonujesz ten repo → wypełniasz 3 pliki kontekstu → piszesz `Napisz artykuł o [temat]` → dostajesz artykuł top 0.1% jakości SEO+GEO.
+**Your articles rank on page 3. AI search doesn't cite you. This fixes both.**
 
-Zbudowany na [Claude Code](https://claude.ai/code). Bezpłatny, open-source, lokalny — żadnych SaaS.
+A context layer for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that turns AI into a specialized content engine. Every article is optimized for Google ranking AND AI search citation (Perplexity, ChatGPT Search, AI Overviews).
 
----
-
-## Czym jest ten engine
-
-Context layer dla Claude Code który zamienia asystenta AI w wyspecjalizowany silnik contentowy:
-
-- Pisze artykuły SEO zoptymalizowane pod **Google** i **AI search** (Perplexity, ChatGPT Search, AI Overviews)
-- Stosuje 25-punktowy checklist SEO automatycznie
-- Stosuje 12-punktowy checklist GEO (Generative Engine Optimization) automatycznie  
-- Ocenia każdy artykuł w skali 0–100. Artykuł poniżej 80 pkt wraca do poprawki automatycznie — bez pytania
-- Żaden artykuł nie trafia do CMS bez Twojej akceptacji (dwa review gates)
-
-**Nie jest to:** narzędzie SaaS, plugin do WordPressa, ani generator spamu. To system pracy z Claude Code.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Works with Claude Code](https://img.shields.io/badge/Works%20with-Claude%20Code-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
 
 ---
 
-## Wymagania
+## What This Does
 
-- [Claude Code](https://claude.ai/code) (CLI lub web) z dostępem do API Anthropic
-- Konto Anthropic z aktywnym API key
-- Git (do klonowania i zarządzania repo)
-
-Opcjonalnie (dla pełnej automatyzacji):
-- MCP connector do Ahrefs lub SEMrush — dane o keyword difficulty
-- MCP connector do Webflow lub WordPress — automatyczne publikowanie
-- MCP connector do Google Search Console — miesięczny performance review
+- **SEO + GEO in one pass.** Articles are optimized for traditional search (25-point SEO checklist) and generative AI search (12-point GEO checklist). Most content tools ignore GEO entirely.
+- **Automated quality gate.** Every article is scored 0-100 across 5 dimensions. Below 80, the engine self-corrects up to 3 times. Nothing reaches you without passing.
+- **Two human review gates.** You approve the brief (5 min) and the final draft (10 min). The engine handles everything between.
 
 ---
 
-## Jak zacząć
-
-### Krok 1: Sklonuj i otwórz w Claude Code
+## Try It in 2 Minutes
 
 ```bash
-git clone https://github.com/GoToSmith/content-engine.git my-blog
-cd my-blog
-claude  # lub otwórz w Claude Code web
+# Clone and open the demo
+git clone https://github.com/gotosmith/content-engine.git
+cd content-engine/examples/routemaster
+
+# Tell Claude Code to write an article
+claude "Write an article about last mile delivery cost reduction"
 ```
 
-### Krok 2: Wypełnij 3 pliki kontekstu (~2 godz. raz na zawsze)
-
-```bash
-cp context/client.md.template context/client.md
-cp context/icp.md.template context/icp.md  
-cp context/tone-of-voice.md.template context/tone-of-voice.md
-```
-
-Otwórz każdy plik i wypełnij według instrukcji w szablonie:
-
-| Plik | Co zawiera | Czas |
-|------|-----------|------|
-| `context/client.md` | Twoja firma, produkt, case studies z liczbami, UVP | ~60 min |
-| `context/icp.md` | Kim jest czytelnik bloga, co wpisuje w Google, jakim językiem mówi | ~45 min |
-| `context/tone-of-voice.md` | Jak piszesz, czego unikasz, przykłady dobrych i złych zdań | ~15 min |
-
-> **Jakość artykułów = jakość tych 3 plików.** Im więcej konkretnych danych (liczby, case studies, cytaty klientów) — tym lepszy artykuł.
-
-### Krok 3: Odkryj keywords (opcjonalnie)
-
-```
-Zrób keyword discovery dla [wpisz temat, np. "automatyzacja procesów"]
-```
-
-Engine rozbuduje temat do mapy keyword clusters i zapisze do `context/topic-clusters.md`.
-
-### Krok 4: Napisz artykuł
-
-```
-Napisz artykuł o [keyword lub temat]
-```
-
-Engine:
-1. Generuje brief → **czekasz na Twoją akceptację** (~5 min)
-2. Pisze artykuł (1500–4000 słów w zależności od intencji)
-3. Automatycznie optymalizuje SEO (25 checklist)
-4. Automatycznie optymalizuje GEO (12 checklist)
-5. Automatycznie ocenia 0–100 pkt; jeśli <80 — iteruje sam
-6. Pokazuje finalny draft → **czekasz na Twoją akceptację** (~10 min)
-7. Publikuje do CMS (jeśli skonfigurowany MCP)
+The RouteMaster demo includes pre-filled context files so you can see the full workflow immediately.
 
 ---
 
-## Struktura repo
+## Set Up for Your Company
+
+Fill 3 files. Takes about 2 hours one time.
+
+| File | What it contains | Time |
+|------|-----------------|------|
+| `context/client.md` | Company, product, UVP, 3+ case studies with numbers | 45 min |
+| `context/icp.md` | Reader persona, 10+ search queries, pain points | 30 min |
+| `context/tone-of-voice.md` | Voice attributes, style rules, good/bad examples | 30 min |
+
+**Recommended** (adds depth to every article):
+
+| File | What it contains | Time |
+|------|-----------------|------|
+| `context/domain-expertise.md` | Industry terminology, myths to debunk, authority sources | 45 min |
+
+Copy templates from `context/*.template` and fill in the brackets. Use `examples/routemaster/` as reference.
+
+**Auto-generated** (the engine creates these):
+
+| File | Created by |
+|------|----------|
+| `context/competitors.md` | SERP analysis during article brief |
+| `context/topic-clusters.md` | Keyword discovery workflow |
+
+---
+
+## How It Works
 
 ```
-content-engine/
-├── CLAUDE.md                    # Główna instrukcja engine (nie edytuj)
-│
+You say: "Write an article about [keyword]"
+
+1. Load Context ........... reads your 6 context files
+2. Generate Brief ......... keyword analysis, SERP gaps, outline, EEAT plan
+3. REVIEW GATE #1 ......... you approve the brief (~5 min)
+4. Write Article .......... 1500-4000 words, structured for SEO+GEO
+5. SEO Optimize ........... 25-point checklist, auto-fix
+6. GEO Optimize ........... 12-point checklist, auto-fix
+7. Quality Gate ........... score 0-100, auto-iterate if <80 (max 3x)
+8. REVIEW GATE #2 ......... you read the final draft (~10 min)
+9. Publish ................ push to CMS as draft, or Markdown package
+```
+
+Total: ~45 min Claude, ~15 min you.
+
+See [assets/workflow-bpmn.html](assets/workflow-bpmn.html) for the full BPMN diagram with swim lanes.
+
+---
+
+## Quality System
+
+Every article is scored across 5 dimensions before it reaches you:
+
+| Dimension | Weight | What it measures |
+|-----------|--------|------------------|
+| EEAT Signals | 25 pts | Experience, expertise, authority, trust markers |
+| SEO Fundamentals | 25 pts | Title, meta, headings, keyword density, links, schema |
+| GEO Signals | 20 pts | Direct answers, structured claims, FAQ, citations, tables |
+| Content Quality | 20 pts | Originality, depth, actionability, readability |
+| Brand Alignment | 10 pts | Voice match, banned phrase check, style consistency |
+
+**Thresholds:**
+- **>= 80:** Passes to you for Review Gate #2
+- **65-79:** Auto-iterates with specific diagnosis (you never see this)
+- **< 65:** Escalates with full explanation
+- Max 3 auto-iteration rounds, then escalates
+
+---
+
+## What is GEO?
+
+**Generative Engine Optimization** is SEO for AI search. When someone asks Perplexity "how do I reduce last mile delivery costs?", GEO determines whether YOUR article gets cited in the answer.
+
+Traditional SEO gets you ranked. GEO gets you cited. This engine does both.
+
+**GEO signals the engine optimizes for:**
+- Direct answer to the query in the first 100 words
+- Structured claims: "[Claim] because [mechanism], which means [implication]"
+- FAQ sections (5+ questions) that match natural language queries
+- Data tables that AI can extract and reference
+- Named sources with year for every data point
+- Entity-first sentences that AI parsers can extract
+
+---
+
+## MCP Connectors
+
+The engine works without connectors (via WebSearch and manual workflows). With connectors, it produces better keyword data, publishes directly to CMS, and pulls real analytics.
+
+| Connector | What it adds | Without it |
+|-----------|-------------|----------|
+| Ahrefs MCP or SEMrush MCP | Real keyword difficulty, search volume, SERP features | WebSearch-based estimation (less precise) |
+| Webflow MCP or WordPress MCP | Publish drafts directly to CMS with metadata and schema | Markdown + metadata package for manual upload |
+| Google Search Console MCP | Real ranking data, clicks, CTR for performance review | Manual GSC export or WebSearch-based checks |
+
+Configure in `.claude/mcp.json`. Each connector is optional and independent.
+
+---
+
+## Commands
+
+| What you say | What happens |
+|---|---|
+| `Write an article about [keyword]` | Full article production workflow |
+| `Find new keywords for [topic]` | Keyword discovery with priority scoring |
+| `How is my content performing?` | Performance review with content decay detection |
+
+---
+
+## Article Rules (Hard-coded)
+
+Every article follows these rules automatically:
+
+**Opening:** Start with a number, cost, or specific problem. Never a definition.
+
+**First 100 words:** Direct answer to the primary query.
+
+**Structure:** FAQ (5+ questions), at least 1 data table, internal link to pillar page.
+
+**Claims format:** "[Claim] because [mechanism], which means [implication for reader]."
+
+**Style:** Max 25 words per sentence. 2-4 sentence paragraphs. Active voice. Numbers as digits.
+
+**Banned phrases:** "In today's world", "comprehensive", "it's worth noting", "holistic", "game-changer", "landscape", "leverage" (as verb), "elevate".
+
+**Sources:** Every data point has a named source and year. No exceptions.
+
+---
+
+## Project Structure
+
+```
+.
+├── CLAUDE.md                          # Engine brain (routing, rules, validation)
 ├── context/
-│   ├── client.md.template       # → skopiuj do client.md i wypełnij
-│   ├── icp.md.template          # → skopiuj do icp.md i wypełnij
-│   ├── tone-of-voice.md.template # → skopiuj do tone-of-voice.md i wypełnij
-│   ├── topic-clusters.md        # Auto-generowany przez keyword-research
-│   └── seo-standards.md         # Standardy jakości (nie edytuj)
-│
+│   ├── client.md.template             # Your company context
+│   ├── icp.md.template                # Reader persona
+│   ├── tone-of-voice.md.template      # Voice and style
+│   ├── domain-expertise.md.template   # Industry depth (recommended)
+│   ├── topic-clusters.md.template     # Keyword map (auto-managed)
+│   ├── competitors.md.template        # SERP analysis (auto-generated)
+│   └── seo-standards.md               # Quality rubric (shared)
 ├── .claude/skills/
-│   ├── keyword-research/        # Ekspansja seed topics → keyword mapa
-│   ├── article-brief/           # Generator briefa z analizą SERP
-│   ├── article-writer/          # Pisanie artykułu (najważniejszy skill)
-│   ├── seo-optimizer/           # 25-punktowy checklist on-page
-│   ├── geo-optimizer/           # 12-punktowy checklist GEO
-│   ├── quality-gate/            # Ocena 0-100, decyzja publish/iteruj
-│   └── cms-publisher/           # Publikacja do Webflow/WordPress
-│
-└── workflows/
-    ├── 00-client-setup.md       # Jednorazowy setup klienta
-    ├── 01-keyword-discovery.md  # Miesięczne odkrywanie keywords
-    ├── 02-article-production.md # Produkcja artykułu (główny workflow)
-    └── 03-performance-review.md # Miesięczny audit wyników
+│   ├── keyword-research/              # Keyword expansion + priority scoring
+│   ├── article-brief/                 # Brief generation + SERP analysis
+│   ├── article-writer/                # Article writing with measurable checks
+│   ├── seo-optimizer/                 # 25-point SEO checklist
+│   ├── geo-optimizer/                 # 12-point GEO checklist
+│   ├── quality-gate/                  # 0-100 scoring across 5 dimensions
+│   └── cms-publisher/                 # CMS publishing or Markdown export
+├── workflows/
+│   ├── 01-article-production.md       # Keyword to published draft
+│   ├── 02-keyword-discovery.md        # Seed topics to keyword map
+│   └── 03-performance-review.md       # Monthly content audit
+├── examples/
+│   ├── routemaster/                   # Full demo (route optimization SaaS)
+│   │   └── context/                   # Pre-filled context files
+│   └── sample-output/                 # Example brief, article, quality report
+└── assets/
+    └── workflow-bpmn.html             # Visual workflow diagram
 ```
 
 ---
 
-## System jakości
+## Example Output
 
-Każdy artykuł jest oceniany automatycznie w skali 0–100:
+See `examples/sample-output/` for a complete production run:
 
-| Kategoria | Pkt | Co sprawdza |
-|-----------|-----|-------------|
-| EEAT | 25 | Doświadczenie, ekspertyza, autorytet, wiarygodność, oryginalność |
-| SEO on-page | 25 | Title tag, nagłówki, keyword placement, internal links, schemat |
-| GEO | 20 | Direct answer, structured claims, FAQ, tabele, entity definitions |
-| Jakość treści | 20 | Oryginalność, głębokość, actionability, czytelność |
-| Brand | 10 | Tone of voice, dopasowanie do ICP |
-
-**Próg publikacji: 80/100.** Artykuł poniżej progu wraca automatycznie do `article-writer` z diagnozą. Max 3 rundy iteracji — jeśli nadal <80, engine eskaluje do Ciebie z wyjaśnieniem.
-
----
-
-## GEO — co to jest i dlaczego ważne
-
-GEO (Generative Engine Optimization) to optymalizacja pod AI search: Perplexity, ChatGPT Search, Google AI Overviews.
-
-Artykuły w tym engine mają wbudowane sygnały GEO:
-
-- **Direct answer w pierwszych 100 słowach** — AI wyciąga odpowiedź z początku dokumentu
-- **TL;DR na górze** (nie na dole) — Perplexity cytuje treść z początku strony
-- **Structured claims** w formacie: "[Twierdzenie] ponieważ [mechanizm], co oznacza [implikacja]"
-- **FAQ section min. 5 pytań** — cytowana przez AI 40% częściej niż ciągły tekst
-- **Min. 1 tabela** — cytowana przez AI Overviews 3x częściej niż akapity
-- **Named attribution** dla każdej statystyki ("badanie X, rok Y")
-
----
-
-## Komendy
-
-```
-# Jednorazowy setup
-Skonfiguruj engine dla [nazwa firmy]
-
-# Keyword discovery (miesięcznie)
-Zrób keyword discovery dla [seed topic]
-
-# Produkcja artykułu (główna komenda)
-Napisz artykuł o [keyword]
-
-# Performance review (miesięcznie)  
-Zrób miesięczny performance review bloga
-```
+- **`brief.md`** - Article brief for "last mile delivery cost reduction"
+- **`article.md`** - Full 2500-word article following all engine rules
+- **`quality-report.md`** - Quality gate report scoring 87/100
 
 ---
 
 ## FAQ
 
-**Czy potrzebuję płatnego planu Claude?**  
-Tak — engine używa Claude Code z API Anthropic. Koszt jednego artykułu to ~0.50–2 USD w zależności od długości i liczby iteracji.
+**Do I need MCP connectors to use this?**
+No. The engine works with WebSearch for keyword research and produces Markdown for manual CMS upload. Connectors make it better, not possible.
 
-**Czy mogę używać dla wielu klientów/blogów?**  
-Tak — sklonuj repo oddzielnie dla każdego klienta i wypełnij osobne pliki kontekstu.
+**What languages does it support?**
+The engine detects your prompt language and writes in that language. If you write in Spanish, the article is in Spanish. Context files and SEO standards are language-agnostic.
 
-**Czy engine działa po polsku i po angielsku?**  
-Engine jest zaprojektowany pod polski rynek B2B, ale działa w obu językach. Ustaw język w `context/client.md` i `context/tone-of-voice.md`.
+**How long does one article take?**
+About 45 minutes of Claude processing and 15 minutes of your time (two review gates). You review the brief and the final draft.
 
-**Czy muszę mieć Ahrefs / SEMrush?**  
-Nie. Bez tych connektorów engine ocenia keyword difficulty na podstawie analizy SERP i własnego osądu. Wyniki są mniej precyzyjne, ale engine działa.
+**Can I skip the keyword discovery workflow?**
+Yes. Bring your own keywords from any tool. Just say "write an article about [keyword]" and the engine starts immediately.
 
-**Czy mogę publikować bez MCP do WordPressa/Webflow?**  
-Tak — `cms-publisher` ma tryb manualny: generuje gotowy Markdown + metadane, który kopiujesz do CMS ręcznie.
+**What if I don't have case studies yet?**
+The engine warns you that articles will lack proof and authority signals, but it proceeds. Fill in case studies when you have them.
 
----
-
-## Licencja
-
-MIT — możesz używać, modyfikować i dystrybuować bez ograniczeń.
+**How is this different from other AI writing tools?**
+Two things: GEO optimization (most tools ignore AI search entirely) and the automated quality gate (score, diagnose, self-correct loop). The engine also maintains persistent context about your company, readers, and voice across articles.
 
 ---
 
-*Zbudowane przez [GoToSmith](https://gotosmith.eu) — GTM dla technologicznych founderów B2B.*
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on reporting bugs, suggesting features, and submitting pull requests.
+
+---
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+Built by [GoToSmith](https://gotosmith.eu)
