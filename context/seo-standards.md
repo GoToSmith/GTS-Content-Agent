@@ -1,50 +1,52 @@
-# SEO Standards — Quality Rubric
+# SEO Standards - Quality Rubric
 
-Plik wspólny (nie klient-specific). Definiuje standardy jakości które silnik egzekwuje automatycznie.
+Shared file (not client-specific). Defines quality standards that the engine enforces automatically.
+
+> **Note:** Adapt examples, sources, and date formats to your target market. The standards below are language-agnostic; replace sample titles and meta descriptions with equivalents in your content language.
 
 ## Word Count per Intent
 
 | Intent | Min | Optimal | Max |
 |--------|-----|---------|-----|
-| Informational (jak/co/dlaczego) | 1500 | 2500 | 3500 |
-| Commercial Investigation (porównanie) | 2000 | 3000 | 4000 |
+| Informational (how/what/why) | 1500 | 2500 | 3500 |
+| Commercial Investigation (comparison) | 2000 | 3000 | 4000 |
 | Quick Answer / Definition | 600 | 1000 | 1500 |
 | Process / Tutorial | 1500 | 2500 | 3500 |
 | Pillar Page | 3000 | 4000 | 6000 |
 
 ## Title Tag Formula
 
-**Format:** [Primary Keyword] — [Benefit lub Angle] [(opcjonalnie: rok)]
+**Format:** [Primary Keyword] - [Benefit or Angle] [(optional: year)]
 
-**Reguły:**
-- Max 60 znaków (liczyć ze spacjami)
-- Primary keyword w pierwszych 3 słowach
-- Brak clickbait (obietnice które artykuł spełnia)
-- Unikalne per artykuł (sprawdź duplikaty)
+**Rules:**
+- Max 60 characters (including spaces)
+- Primary keyword in the first 3 words
+- No clickbait (only promise what the article delivers)
+- Unique per article (check for duplicates)
 
-**Przykłady dobrych tytułów:**
-- "Automatyzacja produkcji: 5 wdrożeń które skróciły czas o 40%"
-- "CRM dla małej firmy — co sprawdza się w Polsce [2025]"
-- "Jak obliczyć ROI z wdrożenia systemu MES"
+**Good title examples:**
+- "Production Automation: 5 Deployments That Cut Time by 40%"
+- "CRM for Small Business - What Actually Works [2025]"
+- "How to Calculate ROI on a MES System Implementation"
 
-**Przykłady złych tytułów:**
-- "Kompleksowy przewodnik po automatyzacji produkcji w Polsce" (za ogólny, "kompleksowy")
-- "Wszystko co musisz wiedzieć o CRM" (clickbait bez substancji)
+**Bad title examples:**
+- "A Comprehensive Guide to Production Automation for Businesses" (too generic, "comprehensive")
+- "Everything You Need to Know About CRM" (clickbait without substance)
 
 ## Meta Description Formula
 
-**Format:** [Primary Keyword] [benefit/outcome]. [Konkret — liczba, przykład, unikalna perspektywa]. [Soft CTA].
+**Format:** [Primary Keyword] [benefit/outcome]. [Specific detail: number, example, unique perspective]. [Soft CTA].
 
-**Reguły:**
-- Max 155 znaków
-- Primary keyword naturalnie w pierwszym zdaniu
-- Konkret — nie "dowiedz się więcej"
-- CTA: "Sprawdź jak", "Zobacz przykłady", "Poznaj framework" — nie "Kliknij tutaj"
+**Rules:**
+- Max 155 characters
+- Primary keyword naturally in the first sentence
+- Include a specific detail, not "learn more"
+- CTA: "See how", "Compare examples", "Get the framework"; not "Click here"
 
 ## Schema Types per Format
 
-| Format artykułu | Schema obowiązkowy | Schema opcjonalny |
-|-----------------|-------------------|-------------------|
+| Article format | Required schema | Optional schema |
+|----------------|----------------|------------------|
 | Standard article | Article + FAQ | BreadcrumbList |
 | Step-by-step guide | Article + HowTo | FAQ |
 | Comparison / Ranking | Article + FAQ | ItemList |
@@ -53,41 +55,32 @@ Plik wspólny (nie klient-specific). Definiuje standardy jakości które silnik 
 
 ## Internal Linking Minimum
 
-- Min. 3 internal links per artykuł
-- 1x pillar page (obowiązkowy)
-- 2x cluster pages (powiązane tematycznie)
-- Max 8 internal links (nie linkuj do wszystkiego)
-- Anchor text: naturalny fragment zdania, nie "kliknij tutaj"
+- Minimum 3 internal links per article
+- 1x pillar page (required)
+- 2x cluster pages (topically related)
+- Maximum 8 internal links (don't link to everything)
+- Anchor text: a natural sentence fragment, not "click here"
 
-## On-Page Checklist (25 pozycji)
+## On-Page Checklist (25 items)
 
-Patrz: skill `seo-optimizer/SKILL.md`
+See: skill `seo-optimizer/SKILL.md`
 
-## GEO Signals Checklist (12 pozycji)
+## GEO Signals Checklist (12 items)
 
-Patrz: skill `geo-optimizer/SKILL.md`
+See: skill `geo-optimizer/SKILL.md`
 
 ## Quality Gate Scoring
 
-Patrz: skill `quality-gate/SKILL.md`
+See: skill `quality-gate/SKILL.md`
 
-Twardy próg: 80/100 = minimum do publication.
+Hard threshold: 80/100 = minimum for publication.
 
-## Zakazane praktyki SEO (nigdy)
+## Banned SEO Practices (never)
 
-- Keyword stuffing — naturalność > density
-- Hidden text lub links
-- Duplicate content między artykułami
-- Thin content (<600 słów dla jakiegokolwiek artykułu)
-- Kupowanie linków
-- Clickbait tytuły które nie matchują treści
-- Auto-generated content bez human review (ten silnik ma obowiązkowe review gates)
-
-## Lokalne SEO (B2B Polish market)
-
-Jeśli klient operuje w Polsce:
-- Używaj polskich przykładów i danych (nie tylko anglojęzyczne case studies)
-- Dodaj location-specific keywords naturalnie (np. "wdrożenie CRM Polska", "automatyzacja dla polskich firm")
-- Cytuj polskie źródła i badania gdzie dostępne
-- Uwzględniaj polskie regulacje jeśli temat tego wymaga (RODO, prawo pracy itp.)
-- Daty i liczby w formacie polskim (DD.MM.YYYY, spacje jako separatory tysięcy)
+- Keyword stuffing; naturalness over density
+- Hidden text or links
+- Duplicate content between articles
+- Thin content (<600 words for any article)
+- Buying links
+- Clickbait titles that don't match the content
+- Auto-generated content without human review (this engine has mandatory review gates)

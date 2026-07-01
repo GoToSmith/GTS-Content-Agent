@@ -1,117 +1,160 @@
 # Workflow 03: Performance Review
 
-**Cel:** Miesięczny audit wyników bloga — rankingi, content decay, AI citations, refresh plan.
+**Goal:** Monthly audit of published content. Detect ranking changes, content decay, AI citation gaps, and new keyword opportunities.
 
-**Czas:** ~20 min (Claude) + ~10 min review (użytkownik)
+**Claude time:** ~20 minutes
+**User time:** ~10 minutes (review refresh plan)
 
-**Uruchomienie:**
+**Trigger:**
 ```
-Zrób miesięczny performance review bloga
+How is my content performing?
 ```
 
 ---
 
-## Warunki wstępne
+## Prerequisites
 
-- [ ] Blog istnieje i ma min. 5 opublikowanych artykułów
-- [ ] Google Search Console połączone (opcjonalnie, przez MCP)
-- [ ] `context/published/` zawiera archiwum artykułów
+- [ ] Blog has at least 5 published articles
+- [ ] `context/topic-clusters.md` tracks published articles with URLs
+- [ ] Google Search Console access (via MCP or manual export)
 
 ---
 
-## Krok 1: Zbierz dane GSC (jeśli MCP dostępny)
+## Step 1: Collect Performance Data
 
-Pobierz z Google Search Console per artykuł:
+### Primary: GSC via MCP (if available)
+
+Pull from Google Search Console for each published article:
 - Average Position (ranking)
-- Clicks + Impressions + CTR (ostatnie 28 dni vs poprzednie 28 dni)
+- Clicks, Impressions, CTR (last 28 days vs. previous 28 days)
 - Top queries per URL
+- New queries driving impressions
 
-Jeśli brak MCP → poproś użytkownika o export danych z GSC (Performance → Export).
+### Fallback: Manual GSC Export
 
----
+If no GSC MCP connector is available, ask the user:
+```
+I need Google Search Console data to run the performance review.
 
-## Krok 2: Content Decay Detection
+Option A: Export from GSC
+  1. Go to Search Console > Performance
+  2. Set date range: last 3 months
+  3. Click Export > Download CSV
+  4. Share the file with me
 
-Zidentyfikuj artykuły z **content decay** (degradacja rankingu):
-
-Sygnały decay:
-- Ranking dropped >5 pozycji vs poprzedni miesiąc
-- CTR drop >20% przy stabilnych impressions
-- Artykuł starszy niż 6 miesięcy bez update
-- Daty w treści są nieaktualne (np. "w 2024 roku")
-
----
-
-## Krok 3: AI Citation Audit (GEO)
-
-Sprawdź ręcznie lub przez Perplexity API (jeśli dostępne):
-
-Dla top 10 artykułów sprawdź czy pojawiają się w:
-- Perplexity — zadaj primary keyword jako pytanie
-- ChatGPT Search — sprawdź czy artykuł jest cytowany
-- Google AI Overviews — wyszukaj keyword i sprawdź overview
-
-Zapisz: cytowany / nie cytowany / partial citation.
-
-Jeśli artykuł nie jest cytowany mimo dobrego rankingu → prawdopodobnie brak GEO signals (FAQ, structured claims, direct answer). Dodaj do refresh list.
+Option B: Skip GSC data
+  I'll run the review using WebSearch-based checks only.
+  This is less precise but still useful for AI citation auditing.
+```
 
 ---
 
-## Krok 4: Content Gap Analysis
+## Step 2: Content Decay Detection
 
-Na bazie GSC queries:
+Flag articles showing content decay based on these signals:
 
-1. Które queries generują impressions ale mały CTR? → title/meta do optymalizacji
-2. Które queries pojawiają się na pozycji 8-20? → artykuł do wzmocnienia (internal links, refresh)
-3. Które queries nie mają pokrycia? → nowe artykuły do kolejki
+| Signal | Threshold | Action |
+|---|---|---|
+| Ranking drop | >5 positions vs. previous period | High priority refresh |
+| CTR drop | >20% drop with stable impressions | Rewrite title + meta description |
+| Content age | >6 months without an update | Review for freshness |
+| Outdated references | Dates, stats, or tools that have changed | Update specific sections |
+| Broken internal links | Links pointing to removed pages | Fix immediately |
 
----
-
-## Krok 5: Refresh Priority List
-
-Stwórz listę z priorytetami:
-
-| Artykuł | Problem | Akcja | Priorytet |
-|---------|---------|-------|-----------|
-| [URL] | Content decay — ranking -8 pozycji | Refresh: nowe dane + GEO signals | Wysoki |
-| [URL] | Brak AI citation | Dodaj FAQ + structured claims | Średni |
-| [URL] | CTR 1.2% przy top 5 | Przepisz title + meta | Wysoki |
+For each flagged article, note:
+- Which decay signal triggered the flag
+- Current ranking vs. previous ranking
+- Specific sections that need updating
 
 ---
 
-## ⏸ Review (użytkownik, ~10 min)
+## Step 3: AI Citation Audit
 
-Przedstaw:
-- Wyniki miesięczne (summary: co rośnie, co spada)
-- Content decay list
-- AI citation status
-- Refresh priority list
+Check whether published articles appear in AI search results. This measures GEO effectiveness.
 
-Czekaj na zatwierdzenie refresh planu.
+**Method: WebSearch**
+
+For the top 10 published articles (by traffic or strategic importance):
+1. Search the primary keyword as a question (e.g., "how do I reduce last mile delivery costs?")
+2. Check if the article or its claims appear in search results
+3. Note whether AI-generated snippets reference the article's data or claims
+
+**Record for each article:**
+- Cited / Not cited / Partially cited
+- Which AI platforms show the content (if identifiable from search results)
+- Missing GEO signals that may explain non-citation (no FAQ, no structured claims, no direct answer)
+
+If an article ranks well in traditional search but is not cited by AI, it likely needs stronger GEO signals. Add it to the refresh list.
 
 ---
 
-## Krok 6: Aktualizacja topic-clusters.md
+## Step 4: Content Gap Analysis
 
-Po zatwierdzeniu:
-- Zaktualizuj statusy artykułów (published → needs-refresh)
-- Dodaj nowe keywords z gap analysis do kolejki
-- Usuń keywords które zostały opublikowane
+Using GSC query data (or WebSearch observations):
+
+1. **High impressions, low CTR:** The article ranks but the title/meta don't compel clicks. Rewrite the title and meta description.
+2. **Position 8-20 keywords:** The article is close to page 1. Strengthen with internal links, content refresh, or expanded sections.
+3. **Uncovered queries:** Search queries generating impressions but no matching article. Add these as new keywords to the production queue.
 
 ---
 
-## Summary
+## Step 5: Build the Refresh Priority List
+
+Create a prioritized action plan:
+
+| Article | Problem | Action | Priority |
+|---|---|---|---|
+| [title/URL] | Ranking dropped 8 positions | Full refresh: new data + GEO signals | High |
+| [title/URL] | No AI citation despite top-5 ranking | Add FAQ + structured claims | High |
+| [title/URL] | CTR at 1.2% in top 5 | Rewrite title + meta description | Medium |
+| [title/URL] | Content 9 months old, no updates | Review for outdated sections | Medium |
+| [title/URL] | New queries not covered | Consider new cluster article | Low |
+
+---
+
+## REVIEW: User Approves the Refresh Plan (~10 minutes)
+
+Present to the user:
+- Monthly summary: what is growing, what is declining
+- Content decay list with specific articles and signals
+- AI citation status for top articles
+- Refresh priority list with recommended actions
+- New keyword suggestions from gap analysis
+
+Wait for approval. The user may:
+- Reprioritize the refresh list
+- Skip certain articles
+- Add articles they want refreshed regardless of data
+
+---
+
+## Step 6: Update topic-clusters.md
+
+After approval:
+- Change status of flagged articles from `published` to `needs-refresh`
+- Add new keywords from gap analysis with status `queued`
+- Add notes on specific refresh actions needed per article
+
+---
+
+## Step 7: Save Insights
+
+Record performance data in a format that informs future content decisions:
 
 ```
-Performance Review — [Miesiąc YYYY]
+## Performance Snapshot: [Month YYYY]
 
-Opublikowane: [X] artykułów
-Średni ranking: [X] pozycja
-CTR: [X]%
-AI citations: [X]/[total] artykułów cytowanych
+Published articles: [X]
+Average position: [X]
+Average CTR: [X]%
+AI citations: [X]/[total] articles cited
 
-Do refreshu: [X] artykułów
-Nowe keywords w kolejce: [X]
+Articles flagged for refresh: [X]
+New keywords added to queue: [X]
 
-Następny review: [data za miesiąc]
+Key insight: [One sentence about the most important finding]
+
+Next review: [date, one month from now]
 ```
+
+Append this snapshot to `context/topic-clusters.md` under a "Performance History" section.

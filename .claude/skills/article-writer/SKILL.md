@@ -1,193 +1,227 @@
 ---
 name: article-writer
-description: Pisze pełny artykuł SEO+GEO (1500–4000 słów) na bazie zatwierdzonego briefa. Wbudowane sygnały EEAT, GEO i tone of voice klienta. Najważniejszy skill w silniku.
+description: Writes a full SEO+GEO article (1500-4000 words) from an approved brief. Built-in EEAT signals, GEO optimization, and client tone of voice. The most important skill in the engine.
 allowed-tools: [Read, Write, WebSearch, WebFetch]
 ---
 
 # Skill: article-writer
 
-## Kiedy używać
+## When to use
 
-Po zatwierdzeniu briefa przez użytkownika (Review Gate #1). Nigdy bez briefa — każde słowo musi mieć uzasadnienie w briefie.
+After the user approves the brief (Review Gate #1). Never without a brief. Every word must have justification in the brief.
 
-## Input wymagany
+## Required input
 
-Przed uruchomieniem przeczytaj w tej kolejności:
-1. `context/client.md` — kto pisze i dla jakiej firmy
-2. `context/icp.md` — dla kogo piszesz, co już wie, jakim językiem mówi
-3. `context/tone-of-voice.md` — jak piszesz, czego unikasz
-4. Brief (output z `article-brief` skill) — struktura, outline, EEAT plan, target keyword
+Read in this order before writing:
+1. `context/client.md` - who is writing and for which company
+2. `context/icp.md` - who you are writing for, what they already know, what language they use
+3. `context/tone-of-voice.md` - how you write, what to avoid
+4. `context/domain-expertise.md` - (if available) LSI terms, industry depth, technical vocabulary
+5. Brief (output from `article-brief` skill) - structure, outline, EEAT plan, target keyword
 
 ## Workflow
 
-### Krok 1: Zrozum zadanie
+### Step 1: Understand the task
 
-Przed pisaniem odpowiedz sobie (nie na głos — wewnętrznie):
-- Co czytelnik wpisał w Google/AI? Jaki ma problem w tej chwili?
-- Co chce osiągnąć po przeczytaniu artykułu?
-- Co wie, a czego nie wie na ten temat?
-- Co klient (firma) chce żeby czytelnik zrozumiał lub zrobił?
+Before writing, answer internally (not out loud):
+- What did the reader type into Google/AI? What is their problem right now?
+- What do they want to accomplish after reading this article?
+- What do they know and what do they not know about this topic?
+- What does the client (the company) want the reader to understand or do?
 
-### Krok 2: Napisz opening (pierwsze 100-150 słów)
+### Step 2: Write the opening (first 100-150 words)
 
-**To jest najważniejsza część artykułu.**
+**This is the most important part of the article.**
 
-Reguła: pierwsze zdanie musi zawierać albo (a) konkretną liczbę, albo (b) konkretny problem, albo (c) zaskakujący fakt. Nigdy nie zaczynaj od definicji tematu.
+Rule: the first sentence must contain either (a) a specific number, (b) a specific cost, or (c) a specific problem. Never start with a definition of the topic.
 
-**Direct Answer (GEO signal):** W pierwszych 100 słowach umieść bezpośrednią odpowiedź na primary query — zanim pojawi się jakikolwiek kontekst. Perplexity i AI Overviews wyciągają tę odpowiedź jako cytat.
+**Direct Answer (GEO signal):** Within the first 100 words, place a direct answer to the primary query before any background context. Perplexity and AI Overviews extract this answer as a citation.
 
-Formularz direct answer: "[Primary keyword] to/oznacza/polega na [odpowiedź w 1-2 zdaniach]. [Kluczowy szczegół który odróżnia dobrą odpowiedź od generycznej]."
+Direct answer format: "[Primary keyword] is/means/involves [answer in 1-2 sentences]. [Key detail that separates a good answer from a generic one]."
 
-### Krok 3: TL;DR / Key Takeaways (GEO signal — obowiązkowy)
+### Step 3: TL;DR / Key Takeaways (GEO signal, mandatory)
 
-Zaraz po openingu. Format:
-
-```
-**Kluczowe wnioski:**
-- [Wniosek 1 — konkretny, falsifiable, z liczbą jeśli możliwe]
-- [Wniosek 2 — mechanizm lub "dlaczego"]
-- [Wniosek 3 — implikacja praktyczna]
-- [Wniosek 4 — opcjonalnie]
-```
-
-**Dlaczego TL;DR na górze, nie na dole:** Perplexity i ChatGPT Search wyciągają treść z początku dokumentu jako pierwsze. Artykuł z TL;DR na górze jest cytowany częściej niż identyczny artykuł z TL;DR na dole lub bez TL;DR.
-
-Każdy punkt TL;DR musi być self-contained — czytelnik który przeczyta tylko TL;DR powinien rozumieć główną tezę artykułu.
-
-### Krok 4: Pisz sekcje główne (H2)
-
-Dla każdej sekcji H2 z briefa:
-
-**Struktura sekcji (obowiązkowa):**
-1. **Teza** (1 zdanie) — co ta sekcja udowodni lub wyjaśni
-2. **Mechanizm** (2-4 zdania) — jak/dlaczego to działa
-3. **Dowód** (1-3 zdania) — konkretny przykład, dane, case study z client.md
-4. **Implikacja** (1-2 zdania) — co to oznacza dla czytelnika
-
-**Structured claims (GEO signal):** W każdej sekcji umieść min. jedno twierdzenie w formacie:
-"[Faktualne twierdzenie] ponieważ [mechanizm], co w praktyce oznacza [implikacja dla czytelnika]."
-
-Ten format jest chętnie cytowany przez AI search.
-
-### Krok 5: Tabela lub lista strukturalna (GEO + SEO signal)
-
-Każdy artykuł musi zawierać min. jedną tabelę lub strukturalną listę kroków.
-
-**Kiedy tabela:** porównania, zestawienia, funkcje produktu, pro/con.
-**Kiedy lista kroków:** procesy, instrukcje, checklist.
-
-Tabele są cytowane przez AI Overviews 3x częściej niż akapity ciągłego tekstu.
-
-### Krok 6: EEAT signals
-
-Wpleć naturalnie — nie w osobnej sekcji:
-
-- **Experience:** "W naszych wdrożeniach obserwujemy..." lub "Klienci których wdrażamy..." (dane z client.md)
-- **Expertise:** Używaj terminologii z domeny, ale wyjaśniaj gdy potrzeba
-- **Authority:** Odniesienie do case study z liczbami (z client.md)
-- **Trust:** Przyznaj ograniczenia lub kontekst — "To działa gdy..., nie działa gdy..."
-
-Minimum: 2 konkretne przykłady z client.md (case studies) wplecione jako naturalne ilustracje.
-
-### Krok 7: FAQ section (GEO signal — obowiązkowy)
-
-Min. 5 pytań. Format:
+Place immediately after the opening. Format:
 
 ```
-## Często zadawane pytania
-
-### [Pytanie z icp.md — jak czytelnik faktycznie pyta]
-[Odpowiedź: 2-4 zdania. Konkretna, bez owijania w bawełnę. Direct answer w pierwszym zdaniu.]
-
-### [Pytanie 2]
-[Odpowiedź]
+**Key Takeaways:**
+- [Takeaway 1: specific, falsifiable, with a number if possible]
+- [Takeaway 2: mechanism or "why"]
+- [Takeaway 3: practical implication]
+- [Takeaway 4: optional]
 ```
 
-Pytania pobierz z `context/icp.md` (sekcja "Pytania które wpisuje w Google/AI"). Uzupełnij longtiail wariantami primary keyword.
+**Why TL;DR at the top, not the bottom:** Perplexity and ChatGPT Search extract content from the beginning of a document first. An article with TL;DR at the top gets cited more frequently than an identical article with TL;DR at the bottom or without one.
 
-### Krok 8: Internal links
+Each TL;DR point must be self-contained. A reader who reads only the TL;DR should understand the main thesis of the article.
 
-Zgodnie z briefem — min. 3:
-- 1x do pillar page (obowiązkowy)
-- 2x do cluster pages
-- Anchor text: naturalne zdania, nie "kliknij tutaj"
+### Step 4: Write main sections (H2)
 
-### Krok 9: Entity Optimization (Semantic SEO)
+For each H2 section from the brief:
 
-Przed zamknięciem artykułu sprawdź:
+**Section structure (mandatory):**
+1. **Thesis** (1 sentence): what this section proves or explains
+2. **Mechanism** (2-4 sentences): how/why it works
+3. **Evidence** (1-3 sentences): specific example, data, case study from client.md
+4. **Implication** (1-2 sentences): what this means for the reader
 
-**Definicja kluczowych encji:** Każde pojęcie techniczne lub branżowe użyte po raz pierwszy musi mieć krótkie wyjaśnienie (1 zdanie) — nie słownikową definicję, tylko kontekstowe wyjaśnienie dla Twojego ICP.
+**Structured claims (GEO signal):** In each section, include at least one claim in this format:
+"[Factual claim] because [mechanism], which means [implication for the reader]."
 
-**Entity associations:** Artykuł powinien wielokrotnie łączyć nazwę firmy klienta z tematem artykułu w formie aktywnej:
-- Poprawnie: "[Firma X] rekomenduje / wdraża / obserwuje / mierzy..."
-- Niepoprawnie: "Firma X to lider w..."
+This format is frequently cited by AI search engines.
 
-To buduje entity association w indeksie Google i w modelach AI: nazwa firmy ↔ ekspertyza w temacie.
+### Step 5: Table or structured list (GEO + SEO signal)
 
-**Semantyczne pokrycie tematu:** Sprawdź czy artykuł używa naturalnie powiązanych terminów (LSI). Jeśli piszesz o "automatyzacji produkcji" — powinny pojawić się: linia produkcyjna, przestoje, OEE, czas cyklu, SCADA, MES — naturalnie, nie wymuszenie.
+Every article must contain at least one table or structured numbered list.
 
-### Krok 10: Closing
+**When to use a table:** comparisons, feature lists, pros/cons, specifications.
+**When to use a numbered list:** processes, instructions, checklists.
 
-Ostatni akapit = konkretny next step dla czytelnika. Nie "skontaktuj się z nami". Formularz:
-"[Jeśli jesteś w sytuacji X] — zacznij od [konkretna akcja, może być link do darmowego zasobu/narzędzia]."
+Tables are cited by AI Overviews approximately 3x more often than continuous prose.
 
-## Reguły pisania (bezwzględne)
+### Step 6: EEAT signals
 
-### Styl
-- Maksymalnie 25 słów per zdanie (liczyć!)
-- Akapity: 2-4 zdania
-- Jedna idea per akapit
-- Aktywna strona: "System wykrywa" nie "Błąd jest wykrywany"
-- Liczby cyframi: "3 tygodnie" nie "trzy tygodnie"
+Weave in naturally, not in a separate section:
 
-### Czego NIE robić
-- Nie zaczynaj sekcji od definicji ze słownika
-- Nie używaj fraz: "W dzisiejszych czasach", "Warto zaznaczyć", "Kompleksowy", "Holistyczny"
-- Nie pisz zdań które brzmią jak marketing: "Nasze rozwiązanie to rewolucja"
-- Nie cytuj danych bez źródła — dane albo z client.md, albo z powszechnie znanych faktów
-- Nie kopiuj struktury z SERPu — dodaj unikalny kąt wynikający z briefu
+- **Experience:** "In our deployments we observe..." or "Clients we work with report..." (data from client.md)
+- **Expertise:** Use domain terminology (from domain-expertise.md if available), but explain when needed
+- **Authority:** Reference case studies with numbers (from client.md)
+- **Trust:** Acknowledge limitations or context: "This works when..., it does not work when..."
+
+Minimum: 2 concrete examples from client.md (case studies) woven in as natural illustrations.
+
+### Step 7: FAQ section (GEO signal, mandatory)
+
+Minimum 5 questions. Format:
+
+```
+## Frequently Asked Questions
+
+### [Question from icp.md, phrased as the reader actually asks]
+[Answer: 2-4 sentences. Concrete, no hedging. Direct answer in the first sentence.]
+
+### [Question 2]
+[Answer]
+```
+
+Pull questions from `context/icp.md` (section with reader search queries). Supplement with longtail variants of the primary keyword.
+
+### Step 8: Internal links
+
+Follow the brief. Minimum 3:
+- 1x to pillar page (mandatory)
+- 2x to cluster pages
+- Anchor text: natural sentence fragments, never "click here"
+
+### Step 9: Entity Optimization (Semantic SEO)
+
+Before closing the article, verify:
+
+**Key entity definitions:** Every technical or industry term used for the first time must have a short explanation (1 sentence). Not a dictionary definition, but a contextual explanation for your ICP.
+
+**Entity associations:** The article should repeatedly associate the client company name with the article topic in an active voice:
+- Correct: "[Company X] recommends / deploys / observes / measures..."
+- Incorrect: "[Company X] is a leader in..."
+
+This builds entity association in Google's index and in AI models: company name paired with topic expertise.
+
+**Semantic topic coverage:** Verify the article naturally uses related terms (LSI). If available, reference `context/domain-expertise.md` for the full list of industry terms that should appear. If writing about "manufacturing automation," terms like production line, downtime, OEE, cycle time, SCADA, MES should appear naturally, not forced.
+
+### Step 10: Closing
+
+Final paragraph = a concrete next step for the reader. Not "contact us." Format:
+"[If you are in situation X], start with [specific action, can be a link to a free resource/tool]."
+
+## Writing rules (non-negotiable)
+
+### Style
+- Maximum 25 words per sentence (count them)
+- Paragraphs: 2-4 sentences
+- One idea per paragraph
+- Active voice: "The system detects" not "The error is detected by"
+- Numbers as digits: "3 weeks" not "three weeks"
+- No em-dashes. Use commas, periods, semicolons, or restructure the sentence.
+
+### What NOT to do
+- Do not start sections with a dictionary definition
+- Do not use these phrases: "In today's world", "It's worth noting", "Comprehensive", "Holistic", "Game-changer", "Landscape", "Leverage" (as verb), "Elevate"
+- Do not write sentences that sound like marketing: "Our solution is a revolution"
+- Do not cite data without a source. Data comes from client.md or from commonly known facts with named attribution.
+- Do not copy the structure from the SERP. Add the unique angle from the brief.
 
 ### Tone of voice
-- Czytaj `context/tone-of-voice.md` przed pisaniem każdego akapitu
-- Sprawdź listę "słów zakazanych" — nie używaj ich
-- Weryfikuj zdania przykładami z sekcji "Dobre zdanie" jako benchmarkiem
+- Read `context/tone-of-voice.md` before writing each paragraph
+- Check the "banned words" list. Do not use them.
+- Verify sentences against the "Good sentence" examples as a benchmark
 
 ## Output format
 
-Artykuł w Markdown z pełną strukturą:
+Article in Markdown with full structure:
 
 ```markdown
-# [Tytuł H1 — max 60 znaków, primary keyword, click-worthy]
+# [H1 Title, max 60 characters, primary keyword, click-worthy]
 
-[Opening akapit — problem/liczba/fakt, direct answer w 100 słowach]
+[Opening paragraph: problem/number/cost, direct answer within 100 words]
 
-**Kluczowe wnioski:**
+**Key Takeaways:**
 - ...
 - ...
 - ...
 
 ---
 
-## [H2 — sekcja 1]
+## [H2, section 1]
 
-[Treść sekcji]
+[Section content]
 
-## [H2 — sekcja 2]
+## [H2, section 2]
 
-[Treść sekcji z tabelą lub listą]
+[Section content with table or list]
 
 ...
 
-## Często zadawane pytania
+## Frequently Asked Questions
 
-### [Pytanie 1]
-[Odpowiedź]
+### [Question 1]
+[Answer]
 
 ...
 
 ---
 
-[Closing akapit z next step]
+[Closing paragraph with next step]
 ```
 
-Po napisaniu artykułu wywołaj automatycznie `seo-optimizer` → `geo-optimizer` → `quality-gate`.
+## Post-writing verification (mandatory)
+
+After completing the article, run these measurable checks before passing to seo-optimizer:
+
+### Word count check
+Count the total number of words in the article. Compare to the target from the brief.
+- If under the minimum: add depth to thin sections.
+- If over the maximum: cut redundant content.
+
+### Sentence length check
+Split the text by sentence-ending punctuation. Count the words in each sentence. List any sentence exceeding 25 words. Rewrite those sentences to be shorter.
+
+### Keyword density check
+Count the number of times the primary keyword appears in the article body (excluding metadata). Divide by total word count and multiply by 100.
+- Target density: 1.0-1.5%
+- Below 0.8%: add natural keyword mentions
+- Above 2.0%: remove forced keyword repetitions
+
+### Internal link check
+Count internal links. Verify there are at least 3. Confirm pillar page is linked.
+
+Report these numbers at the end of the article output:
+
+```
+---
+**Writing Metrics:**
+- Total words: [X] (target: [Y])
+- Sentences over 25 words: [X] (must be 0)
+- Primary keyword density: [X.X]% (target: 1.0-1.5%)
+- Internal links: [X] (minimum: 3)
+```
+
+After the article and metrics pass, proceed automatically to `seo-optimizer` then `geo-optimizer` then `quality-gate`.

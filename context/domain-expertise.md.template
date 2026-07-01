@@ -1,0 +1,97 @@
+# Domain Expertise - [COMPANY NAME]
+
+This file is RECOMMENDED but not required. It deepens article quality by giving the engine
+industry-specific knowledge that turns generic content into authoritative, expert-level writing.
+
+---
+
+## Industry Terminology
+
+Key terms your readers use. These become LSI (Latent Semantic Indexing) keywords in articles,
+signaling topical depth to search engines.
+
+| Term | Definition | When to use in articles |
+|------|-----------|------------------------|
+| [e.g. OEE] | [Overall Equipment Effectiveness: measures manufacturing productivity as availability x performance x quality] | [Use in production efficiency articles; define on first mention] |
+| [e.g. MES] | [Manufacturing Execution System: software that tracks production in real time] | [Use in digital transformation and shop floor articles] |
+| [term 3] | [definition] | [context] |
+| [term 4] | [definition] | [context] |
+| ... | ... | ... |
+
+## Competitive Landscape
+
+Main players in your space. Helps the engine write comparison articles and position your content.
+
+| Competitor | Their positioning | Where you win | Where you lose |
+|-----------|------------------|---------------|----------------|
+| [Competitor A] | [e.g. "Enterprise-focused, high-touch onboarding"] | [e.g. "Faster implementation, lower cost for mid-market"] | [e.g. "Fewer integrations with legacy ERP systems"] |
+| [Competitor B] | [positioning] | [your advantage] | [their advantage] |
+| [Competitor C] | [positioning] | [your advantage] | [their advantage] |
+
+**Content implication:** [e.g. "Emphasize speed-to-value and mid-market fit. Avoid feature-count wars with enterprise players."]
+
+## Common Myths and Misconceptions
+
+Myths your readers believe that your articles can debunk. Debunking builds Trust (the T in EEAT).
+
+1. **Myth:** [e.g. "You need a full IT team to implement a MES system"]
+   **Reality:** [e.g. "Modern cloud-based MES platforms deploy in weeks with minimal IT involvement"]
+   **Article angle:** [e.g. "Use in implementation guides and buyer's guides"]
+
+2. **Myth:** [e.g. "AI in manufacturing is only for large factories"]
+   **Reality:** [e.g. "Facilities with 20+ machines see measurable ROI from predictive maintenance"]
+   **Article angle:** [e.g. "Use in ROI and small manufacturer articles"]
+
+3. **Myth:** [statement]
+   **Reality:** [correction]
+   **Article angle:** [where to use]
+
+## Authority Sources to Cite
+
+Reports, publications, and experts that lend credibility when cited in articles.
+
+**Industry reports:**
+- [e.g. "McKinsey Global Institute, 'The Future of Manufacturing' (2024)"]
+- [e.g. "Gartner Magic Quadrant for Manufacturing Execution Systems"]
+- [report 3]
+
+**Publications:**
+- [e.g. "MIT Technology Review"]
+- [e.g. "Industry Week"]
+- [publication 3]
+
+**Industry experts / thought leaders:**
+- [e.g. "Dr. Jane Smith, MIT Center for Industrial Innovation"]
+- [e.g. "John Doe, VP Manufacturing at [notable company]"]
+
+**Standards and frameworks:**
+- [e.g. "ISA-95 (integration standard for enterprise and control systems)"]
+- [e.g. "ISO 22400 (manufacturing KPI definitions)"]
+
+## Reader Maturity Curve
+
+What readers need at each stage of awareness. Guides which content type to create per keyword intent.
+
+### Stage 1: Aware (knows the problem, not the solution category)
+- **Mindset:** [e.g. "We have too much downtime but I don't know what tools exist"]
+- **Content they need:** [e.g. "Educational articles, problem diagnosis guides, industry benchmarks"]
+- **Proof they trust:** [e.g. "Third-party data, analyst reports, peer examples"]
+
+### Stage 2: Considering (evaluating solution categories)
+- **Mindset:** [e.g. "I know MES systems exist, now I need to understand which type fits us"]
+- **Content they need:** [e.g. "Comparison articles, buyer's guides, feature explanations, ROI calculators"]
+- **Proof they trust:** [e.g. "Case studies from similar companies, implementation timelines, total cost breakdowns"]
+
+### Stage 3: Deciding (choosing a specific vendor)
+- **Mindset:** [e.g. "I've narrowed it to 2-3 vendors and need to justify the choice internally"]
+- **Content they need:** [e.g. "Vendor comparisons, migration guides, integration documentation, customer stories"]
+- **Proof they trust:** [e.g. "Named customer testimonials, demo videos, security certifications, SLA details"]
+
+## Regulatory Context
+
+If your industry has compliance requirements that must be mentioned in relevant articles, list them here.
+Skip this section if not applicable.
+
+- **[Regulation, e.g. GDPR]** - [When to mention: e.g. "Any article discussing customer data collection or CRM systems"]
+- **[Regulation, e.g. FDA 21 CFR Part 11]** - [When to mention: e.g. "Articles about electronic records in pharma manufacturing"]
+- **[Industry standard, e.g. SOC 2]** - [When to mention: e.g. "Articles about SaaS security and data handling"]

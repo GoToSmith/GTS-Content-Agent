@@ -1,53 +1,71 @@
-# Klient — [NAZWA FIRMY]
+# Company Context - [COMPANY NAME]
 
-## Podstawy
+## Basics
 
-- **Firma:** [Nazwa]
-- **Domena:** [https://...]
-- **Branża:** [np. SaaS B2B, Hardware DeepTech, Usługi profesjonalne]
-- **Rynek:** [np. Polska, CEE, Europa, Global]
-- **Etap:** [np. Pre-seed, Seed, Seria A, Bootstrapped]
+- **Company:** [Name]
+- **Domain:** [https://...]
+- **Industry:** [e.g. B2B SaaS, Industrial Hardware, Professional Services]
+- **Market:** [e.g. US, Europe, Global, APAC]
+- **Stage:** [e.g. Pre-seed, Seed, Series A, Bootstrapped, Growth]
 
-## Produkt / Usługa
+## Product / Service
 
-**Co robi (jedno zdanie):**
-[Np. "Platforma do zarządzania zamówieniami dla producentów przemysłowych"]
+**What it does (one sentence):**
+[e.g. "A platform for managing production orders in industrial manufacturing"]
 
-**Jak to działa (mechanizm):**
-[2-3 zdania wyjaśniające zasadę działania — bez marketingowego języka]
+**How it works (mechanism):**
+[2-3 sentences explaining the core mechanism. No marketing language.]
 
-**Dla kogo (buyer):**
-[Kto płaci, kto używa, kto decyduje]
+**Who it's for (buyer):**
+[Who pays, who uses, who decides]
 
-## UVP — dlaczego akurat oni
+## UVP: Why Them
 
-[Jedno zdanie. Co robią inaczej niż konkurencja? Nie lista cech — jedna rzecz która naprawdę odróżnia.]
+[One sentence. What do they do differently from competitors? Not a feature list. The one thing that truly sets them apart.]
 
-## Dowody — case studies z liczbami
+## Proof: Case Studies with Numbers
 
-Wymień min. 3 przykłady z prawdziwymi wynikami. Te będą cytowane w artykułach jako EEAT signal.
+List at least 3 examples with real outcomes. These will be cited in articles as EEAT signals.
 
-1. **[Klient A]** — [wynik: np. "skrócili czas realizacji zamówień o 40% w 3 miesiące"]
-2. **[Klient B]** — [wynik]
-3. **[Klient C]** — [wynik]
+1. **[Client A]** - [result: e.g. "reduced order fulfillment time by 40% in 3 months"]
+2. **[Client B]** - [result]
+3. **[Client C]** - [result]
 
-## Kluczowe liczby (statystyki które można cytować)
+## Key Numbers (citable statistics)
 
-- [np. "Obsługujemy 200+ firm produkcyjnych w Polsce"]
-- [np. "Średni czas wdrożenia: 3 tygodnie"]
-- [np. "NPS: 72"]
+- [e.g. "Serving 200+ manufacturing companies across Europe"]
+- [e.g. "Average implementation time: 3 weeks"]
+- [e.g. "NPS: 72"]
 
-## Czego firma NIE robi (granice)
+## Third-Party Validation
 
-[Co jest poza zakresem? Jakich klientów odrzucają? Co celowo pomijają?]
-Przykład: "Nie obsługujemy B2C. Nie wdrażamy bez dedykowanego opiekuna po stronie klienta."
+Awards, certifications, press mentions, and partnerships that build credibility in articles.
 
-## Słowa kluczowe marki (terminologia wewnętrzna)
+- **Awards:** [e.g. "Best Industrial SaaS 2025, TechCrunch Disrupt finalist"]
+- **Certifications:** [e.g. "ISO 27001, SOC 2 Type II"]
+- **Press mentions:** [e.g. "Featured in Forbes, TechCrunch, Industry Week"]
+- **Partnerships:** [e.g. "Official integration partner with Siemens, SAP"]
 
-[Nazwy własne produktów, modułów, metodologii — których używamy w artykułach]
+## Content Goals
 
-## Linki wewnętrzne (pillar pages do linkowania)
+What should articles achieve beyond driving SEO traffic?
 
-- [URL pillar page 1] — [temat]
-- [URL pillar page 2] — [temat]
-- [URL strony produktowej] — [temat]
+- [e.g. "Position the CEO as a thought leader in industrial automation"]
+- [e.g. "Educate prospects so they arrive at sales calls already understanding the product"]
+- [e.g. "Build a library of resources that sales reps can share during the deal cycle"]
+- [e.g. "Attract engineering talent by showcasing technical depth"]
+
+## What the Company Does NOT Do (boundaries)
+
+[What is out of scope? Which clients do they turn away? What do they deliberately skip?]
+Example: "We don't serve B2C. We don't implement without a dedicated project owner on the client side."
+
+## Brand Keywords (internal terminology)
+
+[Proprietary product names, modules, methodologies that should appear in articles]
+
+## Internal Links (pillar pages for linking)
+
+- [URL pillar page 1] - [topic]
+- [URL pillar page 2] - [topic]
+- [URL product page] - [topic]

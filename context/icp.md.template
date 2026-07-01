@@ -1,66 +1,96 @@
-# ICP Czytelnika — [NAZWA FIRMY]
+# Reader Persona - [COMPANY NAME]
 
-Uwaga: to jest ICP czytelnika bloga, nie ICP klienta. Mogą się pokrywać, ale czytelnik może być
-o poziom niżej (np. ekspert techniczny zamiast C-level) lub szerszy (rynek potencjalnych klientów).
+Note: this is the reader persona for blog content, not the sales ICP. They may overlap, but the reader
+might be one level below the buyer (e.g. a technical expert instead of C-level) or broader (the wider
+market of potential customers).
 
-## Profil primary czytelnika
+## Primary Reader Profile
 
-- **Rola:** [np. Kierownik produkcji, CTO startupu, Head of Operations]
-- **Firma:** [np. Producent przemysłowy 50-500 pracowników, Polska]
-- **Poziom wiedzy:** [Beginner / Intermediate / Expert] w temacie naszego contentu
-- **Jak trafia na artykuł:** [Google search / AI search / polecenie / newsletter]
+- **Role:** [e.g. Production Manager, Startup CTO, Head of Operations]
+- **Company:** [e.g. Industrial manufacturer, 50-500 employees, North America]
+- **Knowledge level:** [Beginner / Intermediate / Expert] in the topics we cover
+- **How they find articles:** [Google search / AI search / referral / newsletter / LinkedIn]
 
-## Co już wie (assumed knowledge)
+## Secondary Readers (Buying Committee)
 
-[Jakiej wiedzy nie musimy wyjaśniać? Co możemy zakładać?]
-Przykład: "Wie czym jest ERP. Zna podstawy Lean Manufacturing. Nie zna narzędzi AI ani automatyzacji."
+Who else reads this content besides the primary reader? These people influence or approve buying decisions.
 
-## Pytania które wpisuje w Google/AI
+- **[Role, e.g. CFO]** - reads to understand [e.g. "ROI and cost justification"]
+- **[Role, e.g. IT Director]** - reads to evaluate [e.g. "integration complexity and security"]
+- **[Role, e.g. End User / Operator]** - reads to check [e.g. "daily usability and learning curve"]
 
-Podaj min. 10 realnych pytań — sformułowanych jak zapytania, nie jak tematy.
+How this affects content: [e.g. "Include an ROI section in every commercial-intent article. Keep technical depth but add a summary box for non-technical stakeholders."]
 
-**Informational (chce zrozumieć):**
-1. [np. "jak zoptymalizować harmonogram produkcji"]
-2. ...
+## Assumed Knowledge (what we don't need to explain)
 
-**Commercial (rozważa zakup):**
-1. [np. "najlepsze oprogramowanie do planowania produkcji Polska"]
-2. ...
+[What can we take for granted? What baseline knowledge does the reader already have?]
+Example: "Knows what an ERP system is. Familiar with lean manufacturing basics. Not familiar with AI tools or automation platforms."
 
-**Problem-aware (ma konkretny ból):**
-1. [np. "jak zmniejszyć przestoje na linii produkcyjnej"]
-2. ...
+## Search Queries They Type into Google/AI
 
-## Główne bóle i frustracje
+List at least 10 real queries, phrased as actual searches, not topic labels.
 
-[Język klienta — jak mówi o swoich problemach, nie jak my o nich mówimy]
-1. [np. "Marnuję godziny na raporty Excel które i tak są nieaktualne"]
-2. [np. "Nie wiem dlaczego mamy przestoje dopóki nie jest za późno"]
+**Informational (wants to understand):**
+1. [e.g. "how to optimize a production schedule"]
+2. [e.g. "what is predictive maintenance"]
 3. ...
 
-## Wyzwalacze (triggery zakupowe)
+**Commercial (considering a purchase):**
+1. [e.g. "best production planning software for manufacturers"]
+2. [e.g. "[competitor name] vs [competitor name] comparison"]
+3. ...
 
-Co konkretnie skłania go do szukania rozwiązania?
-- [np. "Nowy projekt który przekroczył deadline"]
-- [np. "Rozmowa z konkurencją która ma lepsze wyniki"]
-- [np. "Presja zarządu na redukcję kosztów"]
+**Problem-aware (has a specific pain):**
+1. [e.g. "how to reduce downtime on production line"]
+2. [e.g. "why is my order fulfillment so slow"]
+3. ...
 
-## Co przekonuje
+## Main Pain Points and Frustrations
 
-[Jakie argumenty, formaty, dowody trafiają do tej persony?]
-- [np. "Case studies z liczby z podobnej branży"]
-- [np. "Porównania step-by-step z poprzednim procesem"]
-- [np. "Opinie od innych kierowników produkcji"]
+[Use the reader's own language, not how we describe their problems]
+1. [e.g. "I waste hours on Excel reports that are already outdated by the time I finish"]
+2. [e.g. "I don't know why we have downtime until it's too late to fix"]
+3. [e.g. "Every vendor promises easy integration but none of them actually deliver"]
+4. ...
 
-## Co odpycha
+## Purchase Triggers
 
-[Czego unika? Na co jest wrażliwy?]
-- [np. "Marketingowe obietnice bez danych"]
-- [np. "Skomplikowany język techniczny gdy jest operacyjnym menedżerem"]
+What specifically drives them to start looking for a solution?
+- [e.g. "A project that missed its deadline"]
+- [e.g. "A conversation with a competitor who has better results"]
+- [e.g. "Board pressure to cut costs by 15%"]
+- [e.g. "A new hire who used a better tool at their previous company"]
 
-## Język czytelnika
+## What Convinces Them
 
-Podaj 5-10 fraz których używa. Będą wplatane naturalnie w artykuły.
-- "[fraza 1]"
-- "[fraza 2]"
+[Which arguments, formats, and evidence resonate with this persona?]
+- [e.g. "Case studies with numbers from their industry"]
+- [e.g. "Step-by-step comparisons with their current process"]
+- [e.g. "Testimonials from people in the same role"]
+- [e.g. "Clear pricing and implementation timelines"]
+
+## What Repels Them
+
+[What do they avoid? What triggers skepticism?]
+- [e.g. "Marketing promises without data to back them up"]
+- [e.g. "Overly technical jargon when they're an operations manager, not an engineer"]
+- [e.g. "Content that clearly was written by AI without expert review"]
+
+## Content Consumption Habits
+
+Where and how does this reader consume professional content?
+
+- **Primary channels:** [e.g. "LinkedIn feed, Google search during work hours, industry newsletters"]
+- **Preferred formats:** [e.g. "Short how-to articles (under 10 min read), comparison tables, video walkthroughs"]
+- **Reading context:** [e.g. "At desk during work, on mobile between meetings, forwarded by a colleague"]
+- **Communities and forums:** [e.g. "Reddit r/manufacturing, LinkedIn groups for operations leaders, Hacker News"]
+- **Trusted publications:** [e.g. "Industry Week, MIT Technology Review, vendor blogs they already follow"]
+- **Newsletter behavior:** [e.g. "Subscribes to 2-3, skims subject lines, opens only if topic is immediately relevant"]
+
+## Reader Language
+
+List 5-10 phrases they actually use. These will be woven naturally into articles.
+- "[phrase 1]"
+- "[phrase 2]"
+- "[phrase 3]"
 - ...

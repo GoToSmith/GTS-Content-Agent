@@ -1,76 +1,93 @@
-# Tone of Voice — [NAZWA FIRMY]
+# Tone of Voice - [COMPANY NAME]
 
-## Charakter głosu (4-5 atrybutów)
+## Voice Attributes (4-5 characteristics)
 
-Opisz każdy atrybut jako spektrum: [co robimy] nie [czego unikamy].
+Describe each attribute as a spectrum: [what we do], not [what we avoid].
 
-1. **[np. Bezpośredni]** — mówimy wprost co działa, bez owijania w bawełnę. Nie: agresywny ani nieuprzejmy.
-2. **[np. Oparty na danych]** — każde twierdzenie ma dowód lub przykład. Nie: suchy i nudny.
-3. **[np. Ekspercki ale dostępny]** — piszemy dla ekspertów, ale nie po to żeby ich zaskoczyć. Nie: akademicki ani hermetyczny.
-4. **[np. Praktyczny]** — każdy artykuł musi dać coś do zrobienia już dziś. Nie: teoretyzujący.
-5. **[opcjonalnie: np. Szczery]** — przyznajemy kiedy coś jest trudne lub niepewne. Nie: sprzedażowy.
+1. **[e.g. Direct]** - We say what works, without hedging or filler. Not: aggressive or rude.
+2. **[e.g. Evidence-based]** - Every claim has proof or an example. Not: dry and boring.
+3. **[e.g. Expert but accessible]** - We write for experts, but to inform, not to impress. Not: academic or gatekeeping.
+4. **[e.g. Practical]** - Every article must give the reader something actionable today. Not: purely theoretical.
+5. **[optional, e.g. Candid]** - We acknowledge when something is hard or uncertain. Not: salesy.
 
-## Persona "idealnego autora"
+## Ideal Author Persona
 
-[Opisz kto "pisze" te artykuły — jakie ma doświadczenie, jak myśli, co ceni]
-Przykład: "Kierownik produkcji z 15 latami doświadczenia który przeszedł cyfrową transformację i teraz
-chętnie dzieli się lekcjami. Mówi o błędach równie chętnie co o sukcesach. Nie używa buzzwordów."
+[Describe who "writes" these articles. What is their experience, mindset, values?]
+Example: "A production manager with 15 years of experience who led a digital transformation and now
+shares lessons openly. Talks about mistakes as readily as successes. Avoids buzzwords."
 
-## Reguły stylistyczne
+## Style Rules
 
-**Zdania:**
-- Maksymalna długość zdania: [np. 25 słów]
-- Preferowana długość akapitu: [np. 2-4 zdania]
-- Stosuj aktywną stronę — [np. "System wykrywa błąd" nie "Błąd jest wykrywany przez system"]
+**Sentences:**
+- Maximum sentence length: [e.g. 25 words]
+- Preferred paragraph length: [e.g. 2-4 sentences]
+- Use active voice: [e.g. "The system detects the error" not "The error is detected by the system"]
 
-**Liczby i dane:**
-- [np. Zawsze podawaj liczby cyframi, nie słownie: "3 tygodnie" nie "trzy tygodnie"]
-- [np. Zaokrąglaj do jednego miejsca po przecinku max]
+**Numbers and data:**
+- [e.g. Always use digits, not words: "3 weeks" not "three weeks"]
+- [e.g. Round to one decimal place maximum]
 
-**Format:**
-- [np. Listy zamiast długich wyliczeniówek w tekście]
-- [np. Bold dla kluczowych terminów przy pierwszym użyciu]
-- [np. Tabele zamiast porównań w tekście]
+**Formatting:**
+- [e.g. Use bullet lists instead of long inline enumerations]
+- [e.g. Bold key terms on first use]
+- [e.g. Use tables instead of in-text comparisons]
 
-## Słowa zakazane
+## Banned Words and Phrases
 
-Lista słów i fraz których NIGDY nie używamy:
-- "Kompleksowy" / "kompleksowo"
-- "Holistyczne podejście"
-- "W dzisiejszych czasach"
-- "Warto zaznaczyć że"
-- "Jest to niezwykle ważne"
-- "Innowacyjny" (chyba że dosłownie)
-- [dodaj własne]
+Words and phrases we NEVER use:
+- "Comprehensive"
+- "Holistic approach"
+- "In today's world"
+- "It's worth noting that"
+- "This is extremely important"
+- "Innovative" (unless literally describing a patent or first-of-its-kind)
+- "Leverage" (as a verb)
+- "Game-changer"
+- "Landscape"
+- "Elevate"
+- [add your own]
 
-## Słowa preferowane (styl klienta)
+## Preferred Words (brand-specific vocabulary)
 
-Terminy i sformułowania które pasują do marki:
-- [np. "wdrożenie" zamiast "implementacja"]
-- [np. "zespół" zamiast "pracownicy"]
-- [np. "wynik" zamiast "efekt"]
+Terms and phrasings that fit the brand:
+- [e.g. "setup" instead of "implementation"]
+- [e.g. "team" instead of "employees"]
+- [e.g. "outcome" instead of "deliverable"]
 
-## Przykłady — dobre vs. złe zdanie
+## What We DON'T Sound Like
 
-### Dobre (DO)
+Samples of competitor or generic industry voice that we deliberately avoid.
 
-1. "[Konkretny przykład dobrego zdania z kontekstem biznesowym]"
-2. "[Zdanie które pokazuje voice — bezpośrednie, z liczbą lub przykładem]"
-3. "[Zdanie które zaczyna się od problemu/kosztu, nie od rozwiązania]"
-4. "[Zdanie eksperckie ale przystępne]"
-5. "[Zdanie które przyznaje trudność lub kompromis]"
+**Competitor voice we reject:**
+- [e.g. "As a leading provider of innovative solutions, we empower businesses to..." - too generic, too corporate]
+- [e.g. "Our cutting-edge AI-powered platform leverages..." - buzzword-heavy, says nothing]
 
-### Złe (DON'T)
+**How we differ:**
+- [e.g. "Where competitors lead with features, we lead with outcomes and proof"]
+- [e.g. "Where competitors use formal corporate tone, we write like a knowledgeable colleague"]
+- [e.g. "Where competitors avoid specifics, we name numbers, timelines, and trade-offs"]
 
-1. "[Genericznie brzmące zdanie pełne buzzwordów]"
-2. "[Zdanie pasywne, bezosobowe]"
-3. "[Zdanie które mówi co zrobić ale nie dlaczego]"
-4. "[Zdanie marketingowe bez dowodu]"
-5. "[Zdanie które zakłada wiedzę której czytelnik nie ma]"
+## Examples: Good vs. Bad Sentences
 
-## Specyfika formatu blogowego
+### Good (DO)
 
-- Otwierający akapit: zawsze problem lub liczba, nigdy definicja tematu
-- Sekcje: każda ma podtytuł (H2/H3) + jeden konkretny takeaway
-- Closing: konkretny next step dla czytelnika, nie "skontaktuj się z nami"
-- CTA w artykule: max 1 softowy (np. link do narzędzia), nie sprzedażowy
+1. "[A concrete example with business context and a number]"
+2. "[A sentence that shows the voice: direct, with data or a real example]"
+3. "[A sentence that leads with the problem or cost, not the solution]"
+4. "[An expert sentence that stays accessible to the target reader]"
+5. "[A sentence that acknowledges difficulty or a trade-off]"
+
+### Bad (DON'T)
+
+1. "[A generic sentence full of buzzwords]"
+2. "[A passive, impersonal sentence]"
+3. "[A sentence that says what to do but not why]"
+4. "[A marketing claim without evidence]"
+5. "[A sentence that assumes knowledge the reader doesn't have]"
+
+## Blog Format Specifics
+
+- **Opening paragraph:** Always a problem, cost, or number. Never a definition of the topic.
+- **Sections:** Each gets a subheading (H2/H3) and delivers one concrete takeaway.
+- **Closing:** A specific next step for the reader, not "contact us."
+- **CTA in articles:** Maximum 1 soft CTA (e.g. link to a tool or resource), never salesy.

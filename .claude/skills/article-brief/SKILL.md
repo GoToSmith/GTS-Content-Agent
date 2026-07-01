@@ -1,93 +1,123 @@
 ---
 name: article-brief
-description: Generuje 2-stronicowy brief per keyword: outline H1–H3, plan EEAT signals, internal links, typ schema, word count, 3 differentiating angles. Output trafia na Review Gate #1 do użytkownika.
+description: Generates a 2-page brief per keyword with H1-H3 outline, EEAT plan, internal links, schema type, word count, and 3 differentiating angles. Output goes to Review Gate #1 for user approval.
 allowed-tools: [Read, WebSearch, WebFetch]
 ---
 
 # Skill: article-brief
 
-## Kiedy używać
+## When to use
 
-Po wyborze keyword przez użytkownika (z `context/topic-clusters.md`). Zawsze przed article-writer.
+After the user selects a keyword (from `context/topic-clusters.md` or directly). Always before article-writer.
 
-## Input wymagany
+## Required input
 
 - Target keyword (primary)
 - `context/client.md`
 - `context/icp.md`
-- `context/topic-clusters.md` (dla internal link plan)
-- `context/competitors.md` (dla differentiating angles)
+- `context/topic-clusters.md` (for internal link plan)
+- `context/domain-expertise.md` (if available, for differentiating angles and LSI terms)
+
+Note: `context/competitors.md` is NOT required as user input. It is auto-generated during this skill via SERP analysis (see Step 2).
 
 ## Workflow
 
-### Krok 1: Analiza search intent
+### Step 1: Search intent analysis
 
-Zidentyfikuj:
-- **Typ intent:** Informational / Commercial Investigation / Transactional / Navigational
-- **Kto pyta:** Jaki profil z icp.md najlepiej pasuje
-- **Co naprawdę chce osiągnąć:** Nie "wie więcej" — co konkretnie zrobi z tą wiedzą
-- **Poziom wiedzy:** Co już wie, czego nie wie
+Identify:
+- **Intent type:** Informational / Commercial Investigation / Transactional / Navigational
+- **Who is asking:** Which profile from icp.md best matches
+- **What they actually want to achieve:** Not "learn more" but what they will do with this knowledge
+- **Knowledge level:** What they already know, what they do not know
 
-### Krok 2: SERP analysis (jeśli dostępny WebSearch)
+### Step 2: SERP analysis and competitor content mapping
 
-Sprawdź top 5 wyników dla primary keyword:
-- Jaką strukturę mają najlepiej rankujące artykuły
-- Co robią dobrze (nie kopiuj — zrozum dlaczego)
-- Co pomijają lub robią słabo (tu jest szansa)
-- Czy są featured snippets / AI Overviews (format do pobicia)
+**Default path (WebSearch):**
+Search for the primary keyword and analyze the top 5 results:
+- What structure do the top-ranking articles use?
+- What do they do well (understand why, do not copy)?
+- What do they miss or do poorly (this is your opportunity)?
+- Are there featured snippets or AI Overviews (format to beat)?
+- What word count range do the top results fall in?
 
-### Krok 3: Outline H1–H3
+**If MCP available (Ahrefs/SEMrush):**
+Use the MCP connector for deeper SERP data:
+- Content gap analysis
+- Backlink profiles of top results
+- SERP feature opportunities
+- Traffic estimates for top-ranking pages
 
-Zasady:
-- H1: primary keyword + angle który różnicuje od konkurencji
-- H2: główne subtopics (4-8 sekcji) — każda odpowiada na osobne pytanie z icp.md
-- H3: konkretne podpunkty (nie obowiązkowe — tylko gdy sekcja wymaga)
-- Każdy H2 musi mieć "delivery promise" (co czytelnik z niej wyniesie)
+**Auto-generate competitors.md:**
+Write findings to `context/competitors.md` with the following structure:
+```markdown
+# SERP Analysis: [Primary Keyword]
+Generated: [date]
 
-### Krok 4: EEAT Plan
+## Top 5 Results
+1. [URL] - [Title] - Strengths: [...] - Gaps: [...]
+2. [...]
 
-Wskaż konkretnie dla każdej sekcji:
-- Jaki dowód/przykład z client.md wpleść
-- Jakie dane zewnętrzne zacytować (z nazwą źródła)
-- Gdzie przyznać ograniczenie lub kontekst (Trust signal)
+## Content Gaps (opportunities)
+- [What top results miss]
 
-### Krok 5: GEO Signals Plan
+## SERP Features Present
+- [Featured snippet / AI Overview / People Also Ask / etc.]
+```
 
-- **Direct Answer location:** Pierwszy akapit — sformułuj ją już w briefie
-- **Structured claims:** Które sekcje będą miały "[Twierdzenie] ponieważ [mechanizm]"
-- **FAQ questions:** 5-7 pytań z icp.md do pokrycia
-- **Table location:** Która sekcja potrzebuje tabeli + co porównuje
-- **TL;DR placement:** Początek lub koniec
+### Step 3: Outline H1-H3
 
-### Krok 6: Internal Links
+Rules:
+- H1: primary keyword + angle that differentiates from competition
+- H2: main subtopics (4-8 sections), each answering a distinct question from icp.md
+- H3: specific sub-points (only when the section requires them)
+- Every H2 must have a "delivery promise" (what the reader gains from it)
 
-Z `context/topic-clusters.md`:
-- 1x pillar page (obowiązkowy) — URL + sugerowany anchor text
-- 2x cluster pages — URL + sugerowany anchor text
-- Jeśli pillar page nie istnieje → wskaż że musi być stworzona
+### Step 4: EEAT Plan
 
-### Krok 7: Schema + Meta plan
+Specify concretely for each section:
+- What proof/example from client.md to weave in
+- What external data to cite (with source name)
+- Where to acknowledge a limitation or context (Trust signal)
 
-- **Schema type:** Article / FAQ / HowTo / listicle — dobierz do formatu
-- **Meta description draft:** Max 155 znaków z primary keyword + benefit + soft CTA
-- **Slug suggestion:** keyword-primary-angle (bez stop words)
+### Step 5: GEO Signals Plan
 
-### Krok 8: Word count + format
+- **Direct Answer location:** First paragraph. Draft it already in the brief.
+- **Structured claims:** Which sections will have "[Claim] because [mechanism]" format
+- **FAQ questions:** 5-7 questions sourced from icp.md
+- **Table location:** Which section needs a table + what it compares
+- **TL;DR placement:** Top of article (always)
 
-Dobierz word count do intent:
-- Informational (jak/co/dlaczego): 2000–3500 słów
-- Commercial Investigation (porównanie/wybór): 2500–4000 słów
-- Quick answer / Definition: 800–1500 słów
-- Process / Tutorial (kroki): 1800–3000 słów
+### Step 6: Internal Links
 
-Format: standard article / listicle / step-by-step guide / comparison — dobierz do intent.
+From `context/topic-clusters.md`:
+- 1x pillar page (mandatory) with suggested anchor text
+- 2x cluster pages with suggested anchor text
+- If pillar page does not exist yet, note that it must be created
 
-### Krok 9: Differentiating angles
+### Step 7: Schema + Meta plan
 
-3 konkretne kąty odróżniające ten artykuł od konkurencji:
-1. [np. "Perspektywa wdrożeniowa: co się dzieje w tygodniu 2-4, nie tylko co wybrać"]
-2. [np. "Dane z polskich firm, nie tylko US benchmarki"]
-3. [np. "Szczery koszt wdrożenia — czego nie podają vendor strony"]
+- **Schema type:** Article / FAQ / HowTo / listicle, matched to format
+- **Meta description draft:** Max 155 characters with primary keyword + benefit + soft CTA
+- **Slug suggestion:** keyword-primary-angle (no stop words)
+
+### Step 8: Word count + format
+
+Match word count to intent:
+- Informational (how/what/why): 2000-3500 words
+- Commercial Investigation (comparison/selection): 2500-4000 words
+- Quick answer / Definition: 800-1500 words
+- Process / Tutorial (steps): 1800-3000 words
+
+Format: standard article / listicle / step-by-step guide / comparison. Match to intent.
+
+### Step 9: Differentiating angles
+
+Define 3 concrete angles that set this article apart from the competition:
+1. [e.g. "Implementation perspective: what happens in weeks 2-4, not just what to choose"]
+2. [e.g. "Real cost data from actual deployments, not vendor pricing pages"]
+3. [e.g. "Honest limitations section covering when this approach fails"]
+
+Reference `context/domain-expertise.md` for unique angles rooted in deep industry knowledge (if available).
 
 ## Output format
 
@@ -96,77 +126,77 @@ Format: standard article / listicle / step-by-step guide / comparison — dobier
 
 **Keyword:** [primary keyword]
 **Related:** [secondary keyword 1], [secondary keyword 2], [secondary keyword 3]
-**Intent:** [typ + opis jednozdaniowy]
-**Target reader:** [profil z icp.md]
-**Word count:** [liczba] słów
+**Intent:** [type + one-sentence description]
+**Target reader:** [profile from icp.md]
+**Word count:** [number] words
 **Format:** [article / listicle / guide / comparison]
 **Schema:** [Article + FAQ / HowTo / etc.]
 
 ---
 
-## Direct Answer (pierwsze 100 słów)
+## Direct Answer (first 100 words)
 
-[Sformułuj już teraz — article-writer przepiszę w swoim stylu]
+[Draft it now. article-writer will rewrite in proper tone.]
 
 ---
 
 ## Outline
 
-**H1:** [Tytuł — max 60 znaków, primary keyword, differentiating angle]
+**H1:** [Title, max 60 characters, primary keyword, differentiating angle]
 
-**H2: [Sekcja 1]** — Delivery: [co czytelnik wyniesie]
-- H3: [podpunkt] (opcjonalnie)
-- EEAT: [jaki dowód/przykład z client.md wpleść]
-- GEO: [structured claim / tabela / lista]
+**H2: [Section 1]** - Delivery: [what the reader gains]
+- H3: [sub-point] (optional)
+- EEAT: [what proof/example from client.md to include]
+- GEO: [structured claim / table / list]
 
-**H2: [Sekcja 2]** — Delivery: [co czytelnik wyniesie]
+**H2: [Section 2]** - Delivery: [what the reader gains]
 - EEAT: [...]
 - GEO: [...]
 
 [...]
 
-**H2: FAQ — Często zadawane pytania**
-1. [Pytanie 1 z icp.md]
-2. [Pytanie 2]
-3. [Pytanie 3]
-4. [Pytanie 4]
-5. [Pytanie 5]
+**H2: FAQ**
+1. [Question 1 from icp.md]
+2. [Question 2]
+3. [Question 3]
+4. [Question 4]
+5. [Question 5]
 
 ---
 
 ## Internal Links
 
-- **Pillar:** [URL] — anchor: "[anchor text]"
-- **Cluster 1:** [URL lub "do stworzenia"] — anchor: "[anchor text]"
-- **Cluster 2:** [URL lub "do stworzenia"] — anchor: "[anchor text]"
+- **Pillar:** [URL] - anchor: "[anchor text]"
+- **Cluster 1:** [URL or "to be created"] - anchor: "[anchor text]"
+- **Cluster 2:** [URL or "to be created"] - anchor: "[anchor text]"
 
 ---
 
 ## Meta Description
 
-[Max 155 znaków — primary keyword + główny benefit + soft CTA]
+[Max 155 characters with primary keyword + main benefit + soft CTA]
 
 **Slug:** [keyword-angle]
 
 ---
 
-## TL;DR (do umieszczenia na początku artykułu)
+## TL;DR (to be placed at the top of the article)
 
-- [Wniosek 1]
-- [Wniosek 2]
-- [Wniosek 3]
+- [Takeaway 1]
+- [Takeaway 2]
+- [Takeaway 3]
 
 ---
 
 ## Differentiating Angles
 
-1. [Kąt 1 — co ten artykuł ma czego nie mają top 5 wyników]
-2. [Kąt 2]
-3. [Kąt 3]
+1. [Angle 1: what this article has that top 5 results do not]
+2. [Angle 2]
+3. [Angle 3]
 
 ---
 
-**[CZEKA NA ZATWIERDZENIE PRZEZ UŻYTKOWNIKA]**
+**[AWAITING USER APPROVAL]**
 ```
 
-Po wygenerowaniu briefa: zatrzymaj się i poczekaj na zatwierdzenie użytkownika (Review Gate #1).
+After generating the brief: stop and wait for user approval (Review Gate #1).

@@ -1,211 +1,234 @@
 ---
 name: quality-gate
-description: Scoring artykułu 0–100 na 5 wymiarach. Twardy próg 80 — poniżej diagnoza i pętla do article-writer. Żaden artykuł nie trafia do CMS bez przejścia quality gate.
+description: Scores an article 0-100 across 5 dimensions. Hard threshold of 80 to pass. Below that, diagnose and loop back. No article reaches the CMS without passing this gate.
 allowed-tools: [Read]
 ---
 
 # Skill: quality-gate
 
-## Kiedy używać
+## When to use
 
-Zawsze po `geo-optimizer`. Automatycznie — nie pytaj użytkownika.
+Always after `geo-optimizer`. Automatically. Do not ask the user.
 
-## Kluczowa zasada: Fresh Evaluator
+## Core principle: Fresh Evaluator
 
-Oceniaj artykuł jakbyś widział go pierwszy raz — nie znasz procesu jego powstawania, nie znasz briefa, nie znasz intencji autora. Widzisz tylko gotowy tekst i kryteria oceny. To jest celowe: Quality Gate musi wykryć to czego nie widzi autor, który jest zbyt blisko materiału.
+Evaluate the article as if you are seeing it for the first time. You do not know the process behind it, you do not know the brief, you do not know the author's intentions. You see only the finished text and the scoring criteria. This is intentional: Quality Gate must catch what the author cannot see because they are too close to the material.
 
-Jeśli artykuł mógłby być lepszy — powiedz to. Nie zaokrąglaj w górę "żeby było OK". Próg 80 to minimum, nie cel.
+If the article could be better, say so. Do not round up "to make it pass." The threshold of 80 is a minimum, not a target.
 
-## Input wymagany
+## Measurable verification (mandatory)
 
-- Artykuł (po przejściu seo-optimizer i geo-optimizer)
-- Output z obu optimizerów (lista znalezionych problemów)
-- `context/client.md` (dla weryfikacji EEAT)
-- `context/icp.md` (dla weryfikacji ICP fit)
-- `context/tone-of-voice.md` (dla weryfikacji brand alignment)
+Before scoring, actually count these metrics. Do not estimate.
+
+1. **Word count:** Count every word in the article body.
+2. **Keyword density:** Count primary keyword occurrences. Divide by total words. Multiply by 100.
+3. **Sentence lengths:** Split text by sentence-ending punctuation. Count words per sentence. List any exceeding 25 words.
+4. **Internal links:** Count them. Verify pillar page is linked.
+5. **FAQ questions:** Count them. Minimum 5.
+6. **Tables:** Count them. Minimum 1.
+
+Record these numbers in the report. They inform the SEO and Content Quality scores.
+
+## Required input
+
+- Article (after passing seo-optimizer and geo-optimizer)
+- Output from both optimizers (list of issues found)
+- `context/client.md` (for EEAT verification)
+- `context/icp.md` (for ICP fit verification)
+- `context/tone-of-voice.md` (for brand alignment verification)
 
 ## Scoring Rubric
 
-Oceń KAŻDY punkt osobno. Nie zaokrąglaj w górę. Jeśli brak dowodu — 0.
+Score EVERY item individually. Do not round up. If there is no evidence, score 0.
 
 ---
 
-### EEAT Signals — max 25 pkt
+### EEAT Signals: max 25 points
 
-**Experience (5 pkt):**
-- 5 pkt: Artykuł zawiera min. 2 konkretne przykłady z doświadczenia klienta (case studies z liczbami z client.md)
-- 3 pkt: 1 konkretny przykład lub dane
-- 1 pkt: Ogólne odniesienia bez liczb
-- 0 pkt: Brak przykładów z praktyki
+**Experience (5 pts):**
+- 5: Article contains 2+ concrete examples from client experience (case studies with numbers from client.md)
+- 3: 1 concrete example or data point
+- 1: General references without numbers
+- 0: No examples from practice
 
-**Expertise (5 pkt):**
-- 5 pkt: Artykuł demonstruje głębokie zrozumienie tematu — nie oczywistości, nowe kąty, mechanizmy
-- 3 pkt: Solidna wiedza ale nic czego nie ma w pierwszych 3 wynikach Google
-- 1 pkt: Powierzchowne — Wikipedia level
-- 0 pkt: Błędy merytoryczne lub brak substancji
+**Expertise (5 pts):**
+- 5: Article demonstrates deep understanding, not surface-level content, with new angles and mechanisms
+- 2: Solid knowledge but nothing that is not in the first 3 Google results
+- 1: Surface-level, Wikipedia depth
+- 0: Factual errors or lack of substance
 
-**Authoritativeness (5 pkt):**
-- 5 pkt: Cytuje zewnętrzne źródła z nazwą (badanie X, raport Y z datą), dane klienta z liczbami
-- 3 pkt: Niektóre dane ale niepełna atrybucja
-- 1 pkt: "Badania pokazują" bez nazw
-- 0 pkt: Brak jakichkolwiek zewnętrznych źródeł
+**Authoritativeness (5 pts):**
+- 5: Cites external sources by name (study X, report Y with date), client data with numbers
+- 3: Some data but incomplete attribution
+- 1: "Research shows" without names
+- 0: No external sources at all
 
-**Trust signals (5 pkt):**
-- 5 pkt: Artykuł przyznaje ograniczenia, kontekst kiedy NIE stosować, kompromisy
-- 3 pkt: Prezentuje temat uczciwie bez overselling
-- 1 pkt: Jednostronny ale bez kłamstw
-- 0 pkt: Pure marketing, obietnice bez pokrycia
+**Trust signals (5 pts):**
+- 5: Article acknowledges limitations, contexts where the approach does NOT apply, trade-offs
+- 3: Presents topic honestly without overselling
+- 1: One-sided but not dishonest
+- 0: Pure marketing, promises without backing
 
-**Originality (5 pkt):**
-- 5 pkt: Unikalny kąt, własny framework, dane których nie ma u konkurencji
-- 3 pkt: Dobra synteza ale bez oryginalnej perspektywy
-- 1 pkt: Respin tego co jest w SERPie
-- 0 pkt: Dosłowne odwzorowanie konkurencji
-
----
-
-### SEO Fundamentals — max 25 pkt
-
-**Title tag (5 pkt):**
-- 5 pkt: Max 60 znaków, primary keyword w pierwszych 3 słowach, click-worthy bez clickbait
-- 3 pkt: Keyword jest ale za długi LUB nieciekawy
-- 1 pkt: Keyword jest, reszta słaba
-- 0 pkt: Brak keywordu lub >70 znaków
-
-**Header structure (5 pkt):**
-- 5 pkt: H1 jeden, H2 pokrywają primary subtopics, H3 subsections, keyword variations naturalnie
-- 3 pkt: Dobra hierarchia ale brak keyword variations w nagłówkach
-- 1 pkt: Nagłówki są ale przypadkowe
-- 0 pkt: Brak struktury nagłówków
-
-**Keyword placement (5 pkt):**
-- 5 pkt: Primary keyword w H1, pierwszym akapicie, min. jednym H2; density 1–1.5%; secondary keywords naturalnie
-- 3 pkt: Keyword jest ale density za wysoka (>2%) lub za niska (<0.5%)
-- 1 pkt: Keyword tylko w tytule
-- 0 pkt: Brak keywordu w treści
-
-**Internal links (5 pkt):**
-- 5 pkt: Min. 3 internal links, w tym pillar page; anchor text naturalny (nie "kliknij tutaj")
-- 3 pkt: 2 internal links lub pillar link brakuje
-- 1 pkt: 1 internal link
-- 0 pkt: Brak internal links
-
-**Schema + meta (5 pkt):**
-- 5 pkt: Meta description max 155 znaków z keyword i CTA; schema JSON-LD (Article + FAQ)
-- 3 pkt: Meta OK ale brak schema LUB schema bez FAQ
-- 1 pkt: Tylko meta bez schema
-- 0 pkt: Brak obu
+**Originality (5 pts):**
+- 5: Unique angle, proprietary framework, data not found at competitors
+- 2: Good quality but no unique perspective that could not be found elsewhere
+- 1: Respin of what is already in the SERP
+- 0: Near-copy of competitor content
 
 ---
 
-### GEO Signals — max 20 pkt
+### SEO Fundamentals: max 25 points
 
-**Direct answer (5 pkt):**
-- 5 pkt: W pierwszych 100 słowach jest konkretna odpowiedź na primary query — wyodrębniona, jednozdaniowa
-- 3 pkt: Odpowiedź jest ale w 200-300 słowach lub rozmyta
-- 1 pkt: Odpowiedź gdzieś w artykule ale nie na początku
-- 0 pkt: Brak bezpośredniej odpowiedzi na query
+**Title tag (5 pts):**
+- 5: Max 60 characters, primary keyword in first 3 words, click-worthy without clickbait
+- 3: Keyword present but too long OR uncompelling
+- 1: Keyword present, everything else is weak
+- 0: No keyword or exceeds 70 characters
 
-**Structured claims (5 pkt):**
-- 5 pkt: Min. 3 twierdzenia w formacie "[Twierdzenie] ponieważ [mechanizm], co oznacza [implikacja]"
-- 3 pkt: 1-2 structured claims
-- 1 pkt: Twierdzenia są ale niekompletne (brak mechanizmu lub implikacji)
-- 0 pkt: Brak structured claims
+**Header structure (5 pts):**
+- 5: One H1, H2s cover primary subtopics, H3 sub-sections where needed, keyword variations used naturally
+- 3: Good hierarchy but no keyword variations in headers
+- 1: Headers present but random
+- 0: No header structure
 
-**FAQ section (5 pkt):**
-- 5 pkt: Min. 5 pytań Q&A, pytania z języka czytelnika (icp.md), bezpośrednie odpowiedzi
-- 3 pkt: 3-4 pytania lub pytania nie z języka czytelnika
-- 1 pkt: 1-2 pytania
-- 0 pkt: Brak FAQ
+**Keyword placement (5 pts):**
+- 5: Primary keyword in H1, first paragraph, at least one H2; density 1.0-1.5%; secondary keywords used naturally
+- 3: Keyword present but density above 2% or below 0.5%
+- 1: Keyword only in the title
+- 0: Keyword absent from body text
 
-**Tabele i listy strukturalne (5 pkt):**
-- 5 pkt: Min. 1 tabela + min. 1 lista numerowana (proces/kroki)
-- 3 pkt: Tylko tabela LUB tylko lista
-- 1 pkt: Lista wypunktowana bez tabeli
-- 0 pkt: Sam ciągły tekst
+**Internal links (5 pts):**
+- 5: 3+ internal links including pillar page; natural anchor text
+- 3: 2 internal links or pillar link missing
+- 1: 1 internal link
+- 0: No internal links
 
----
-
-### Content Quality — max 20 pkt
-
-**Oryginalność (5 pkt):**
-- 5 pkt: Artykuł wnosi coś czego nie ma w top 5 wynikach Google — nowy kąt, własne dane, unikalna synteza
-- 3 pkt: Dobra jakość ale brak unikalnej perspektywy
-- 1 pkt: Respin topowych wyników
-- 0 pkt: AI-sounding generic content
-
-**Głębia (5 pkt):**
-- 5 pkt: Każda sekcja odpowiada na "dlaczego" i "jak" — nie tylko "co"; mechanizmy wyjaśnione
-- 3 pkt: Dobra głębia w połowie artykułu
-- 1 pkt: Powierzchowne we wszystkich sekcjach
-- 0 pkt: Definicje i oczywistości
-
-**Actionability (5 pkt):**
-- 5 pkt: Czytelnik wie co zrobić po przeczytaniu — konkretne kroki, przykłady do zastosowania
-- 3 pkt: Ogólne wskazówki
-- 1 pkt: Tylko wiedza, brak wskazówek
-- 0 pkt: Teoretyczny bez żadnej akcji
-
-**Czytelność (5 pkt):**
-- 5 pkt: Zdania max 25 słów, akapity 2-4 zdania, brak buzzwordów z listy "zakazanych", aktywna strona
-- 3 pkt: Kilka długich zdań lub zakazane frazy
-- 1 pkt: Wiele długich zdań, passive voice dominuje
-- 0 pkt: Ciężkie do przeczytania
+**Schema + meta (5 pts):**
+- 5: Meta description max 155 characters with keyword and CTA; Article + FAQ schema JSON-LD
+- 3: Meta OK but no schema, OR schema without FAQ
+- 1: Meta only, no schema
+- 0: Neither present
 
 ---
 
-### Brand Alignment — max 10 pkt
+### GEO Signals: max 20 points
 
-**Tone of voice (5 pkt):**
-- 5 pkt: Artykuł brzmi jak persona "idealnego autora" z tone-of-voice.md; zero słów z listy "zakazanych"
-- 3 pkt: Bliski ale kilka odchyleń
-- 1 pkt: Neutralny — nie pasuje ale nie razi
-- 0 pkt: Sprzeczny z tone of voice lub zawiera zakazane frazy
+**Direct answer (5 pts):**
+- 5: Within first 100 words, a concrete answer to the primary query, extractable, in 1-2 sentences
+- 3: Answer exists but buried in 200-300 words or too vague
+- 1: Answer somewhere in the article but not at the beginning
+- 0: No direct answer to the query
 
-**ICP fit (5 pkt):**
-- 5 pkt: Artykuł zakłada dokładnie taki poziom wiedzy jak w icp.md; używa języka czytelnika z icp.md
-- 3 pkt: Bliski ale miejscami za podstawowy lub za zaawansowany
-- 1 pkt: Ogólny — pasuje do każdego
-- 0 pkt: Zły poziom wiedzy dla ICP
+**Structured claims (5 pts):**
+- 5: 3+ claims in "[Claim] because [mechanism], which means [implication]" format
+- 3: 1-2 structured claims
+- 1: Claims present but incomplete (missing mechanism or implication)
+- 0: No structured claims
+
+**FAQ section (5 pts):**
+- 5: 5+ Q&A pairs, questions in reader language (from icp.md), direct answers
+- 3: 3-4 questions or questions not in reader language
+- 1: 1-2 questions
+- 0: No FAQ section
+
+**Tables and structured lists (5 pts):**
+- 5: At least 1 table + at least 1 numbered list (process/steps)
+- 3: Only a table OR only a list
+- 1: Bullet list but no table
+- 0: Continuous text only
+
+---
+
+### Content Quality: max 20 points
+
+**Originality (5 pts):**
+- 5: Article adds something not found in the top 5 Google results: new angle, original data, unique synthesis
+- 2: Good quality but no unique perspective
+- 1: Respin of top results
+- 0: AI-sounding generic content
+
+**Depth (5 pts):**
+- 5: Every section answers "why" and "how," not just "what"; mechanisms explained
+- 3: Good depth in half the article
+- 1: Surface-level across all sections
+- 0: Definitions and obvious statements only
+
+**Actionability (5 pts):**
+- 5: Reader knows what to do after reading: concrete steps, applicable examples
+- 3: General guidance
+- 1: Knowledge only, no guidance
+- 0: Theoretical with no actionable content
+
+**Readability (5 pts):**
+- 5: Sentences max 25 words, paragraphs 2-4 sentences, no banned buzzwords, active voice throughout
+- 3: A few long sentences or banned phrases present
+- 1: Many long sentences, passive voice dominates
+- 0: Difficult to read
+
+---
+
+### Brand Alignment: max 10 points
+
+**Tone of voice (5 pts):**
+- 5: Article sounds like the "ideal author" persona from tone-of-voice.md; zero banned words
+- 3: Close but a few deviations
+- 1: Neutral: does not match but does not clash
+- 0: Contradicts tone of voice or contains banned phrases
+
+**ICP fit (5 pts):**
+- 5: Article assumes exactly the knowledge level described in icp.md; uses reader language from icp.md
+- 3: Close but occasionally too basic or too advanced
+- 1: Generic: fits anyone
+- 0: Wrong knowledge level for the ICP
 
 ---
 
 ## Workflow
 
-1. Oceniaj każdy punkt po kolei — nie rób shortcutów
-2. Dla każdego wymiaru zapisz uzasadnienie (jedno zdanie)
-3. Zsumuj punkty
-4. Sprawdź próg:
+1. Run measurable verification (word count, density, sentence lengths, link count, FAQ count, table count)
+2. Score each item individually with a one-sentence justification
+3. Sum the points
+4. Apply threshold:
 
-**Score ≥ 80:** Artykuł przechodzi. Przekaż do użytkownika na review z podsumowaniem score + 3 mocne strony.
+**Score >= 80:** Article passes. Present to the user for review with score summary + 3 strengths.
 
-**Score 65–79:** Targeted revision. Zidentyfikuj dokładnie które kryteria nie są spełnione. Przekaż diagnozę do `article-writer` z listą konkretnych zmian (nie "popraw EEAT" ale "w sekcji X brakuje konkretnego przykładu z client.md — dodaj case study [Klient A]"). Iteruj bez pytania użytkownika.
+**Score 65-79:** Targeted revision. Identify exactly which criteria are not met. Send diagnosis to `article-writer` with a list of specific changes (not "improve EEAT" but "in section X, add a concrete example from client.md showing [specific data point]"). Iterate without asking the user.
 
-**Score < 65:** Poważna rewizja. Wróć do `article-brief` — sprawdź czy brief był poprawny. Poinformuj użytkownika z diagnozą.
+**Score < 65:** Major revision required. Return to `article-brief` to verify the brief was correct. Inform the user with full diagnosis.
+
+Maximum 3 auto-iteration rounds. After 3 failed rounds, escalate to the user with diagnosis.
 
 ## Output format
 
 ```
 ## Quality Gate Report
 
-**Wynik: [X]/100** — [PASS ≥80 / REVISION 65-79 / REWRITE <65]
+**Score: [X]/100** - [PASS >=80 / REVISION 65-79 / REWRITE <65]
+
+### Measured Metrics
+- Word count: [X] (target: [Y])
+- Keyword density: [X]% (target: 1.0-1.5%)
+- Sentences over 25 words: [X]
+- Internal links: [X] (minimum: 3)
+- FAQ questions: [X] (minimum: 5)
+- Tables: [X] (minimum: 1)
 
 ### Breakdown
-| Wymiar | Wynik | Max | Diagnoza |
-|--------|-------|-----|----------|
-| EEAT Signals | X | 25 | [jedno zdanie] |
-| SEO Fundamentals | X | 25 | [jedno zdanie] |
-| GEO Signals | X | 20 | [jedno zdanie] |
-| Content Quality | X | 20 | [jedno zdanie] |
-| Brand Alignment | X | 10 | [jedno zdanie] |
+| Dimension | Score | Max | Diagnosis |
+|-----------|-------|-----|-----------|
+| EEAT Signals | X | 25 | [one sentence] |
+| SEO Fundamentals | X | 25 | [one sentence] |
+| GEO Signals | X | 20 | [one sentence] |
+| Content Quality | X | 20 | [one sentence] |
+| Brand Alignment | X | 10 | [one sentence] |
 | **TOTAL** | **X** | **100** | |
 
-### Mocne strony
-1. [Konkret]
-2. [Konkret]
+### Strengths
+1. [Specific strength]
+2. [Specific strength]
 
-### Wymagane poprawki [tylko jeśli score < 80]
-1. [Konkretna zmiana z lokalizacją w artykule — sekcja X, akapit Y]
-2. [Konkretna zmiana]
+### Required fixes [only if score < 80]
+1. [Specific change with location in article: section X, paragraph Y]
+2. [Specific change]
 3. [...]
 ```
