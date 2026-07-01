@@ -53,7 +53,7 @@ Copy templates from `context/*.template` and fill in the brackets. Use `examples
 **Auto-generated** (the engine creates these):
 
 | File | Created by |
-|------|-----------|
+|------|----------|
 | `context/competitors.md` | SERP analysis during article brief |
 | `context/topic-clusters.md` | Keyword discovery workflow |
 
@@ -77,7 +77,7 @@ You say: "Write an article about [keyword]"
 
 Total: ~45 min Claude, ~15 min you.
 
-![Article Production Workflow](assets/workflow.png)
+![Article Production Workflow](assets/Zrzut%20ekranu%202026-07-1%20o%2017.10.29.png)
 
 ---
 
