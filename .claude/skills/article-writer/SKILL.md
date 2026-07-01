@@ -70,9 +70,9 @@ For each H2 section from the brief:
 
 This format is frequently cited by AI search engines.
 
-### Step 5: Table or structured list (GEO + SEO signal)
+### Step 5: Table AND numbered list (GEO + SEO signal)
 
-Every article must contain at least one table or structured numbered list.
+Every article must contain at least one data table AND at least one numbered list. Both are required for full GEO marks.
 
 **When to use a table:** comparisons, feature lists, pros/cons, specifications.
 **When to use a numbered list:** processes, instructions, checklists.
@@ -213,6 +213,9 @@ Count the number of times the primary keyword appears in the article body (exclu
 ### Internal link check
 Count internal links. Verify there are at least 3. Confirm pillar page is linked.
 
+### Table and numbered list check
+Verify the article contains at least one data table AND at least one numbered list. Both are required (geo-optimizer checks items #8 and #9 independently).
+
 Report these numbers at the end of the article output:
 
 ```
@@ -222,6 +225,8 @@ Report these numbers at the end of the article output:
 - Sentences over 25 words: [X] (must be 0)
 - Primary keyword density: [X.X]% (target: 1.0-1.5%)
 - Internal links: [X] (minimum: 3)
+- Data table: [yes/no] (required)
+- Numbered list: [yes/no] (required)
 ```
 
 After the article and metrics pass, proceed automatically to `seo-optimizer` then `geo-optimizer` then `quality-gate`.
