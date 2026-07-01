@@ -48,7 +48,7 @@ These connectors improve output quality significantly. The engine works without 
 | Webflow MCP or WordPress MCP | Publish drafts directly to CMS with metadata and schema | Markdown + metadata package for manual upload |
 | Google Search Console MCP | Real ranking data, clicks, CTR for performance review | Manual GSC export or WebSearch-based checks |
 
-Configure in `.claude/mcp.json`. See README for setup instructions.
+Configure in `.claude/mcp.json`. Copy `.claude/mcp.json.example` and fill in your API keys. See README for details.
 
 ## Quality Floor
 

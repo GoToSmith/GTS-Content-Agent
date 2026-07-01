@@ -45,7 +45,7 @@ List the context files you were using (remove any sensitive or proprietary data 
 
 ```
 context/
-  company.md
+  client.md
   icp.md
   ...
 ```

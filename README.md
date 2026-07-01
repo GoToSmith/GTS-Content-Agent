@@ -53,7 +53,7 @@ Copy templates from `context/*.template` and fill in the brackets. Use `examples
 **Auto-generated** (the engine creates these):
 
 | File | Created by |
-|------|----------|
+|------|-----------|
 | `context/competitors.md` | SERP analysis during article brief |
 | `context/topic-clusters.md` | Keyword discovery workflow |
 
@@ -77,7 +77,7 @@ You say: "Write an article about [keyword]"
 
 Total: ~45 min Claude, ~15 min you.
 
-See [assets/workflow-bpmn.html](assets/workflow-bpmn.html) for the full BPMN diagram with swim lanes.
+![Article Production Workflow](assets/workflow.png)
 
 ---
 
@@ -122,12 +122,21 @@ Traditional SEO gets you ranked. GEO gets you cited. This engine does both.
 The engine works without connectors (via WebSearch and manual workflows). With connectors, it produces better keyword data, publishes directly to CMS, and pulls real analytics.
 
 | Connector | What it adds | Without it |
-|-----------|-------------|----------|
+|-----------|-------------|------------|
 | Ahrefs MCP or SEMrush MCP | Real keyword difficulty, search volume, SERP features | WebSearch-based estimation (less precise) |
 | Webflow MCP or WordPress MCP | Publish drafts directly to CMS with metadata and schema | Markdown + metadata package for manual upload |
 | Google Search Console MCP | Real ranking data, clicks, CTR for performance review | Manual GSC export or WebSearch-based checks |
 
-Configure in `.claude/mcp.json`. Each connector is optional and independent.
+Each connector is optional and independent. To set up:
+
+1. Copy the example config:
+   ```bash
+   cp .claude/mcp.json.example .claude/mcp.json
+   ```
+2. Fill in your API keys (remove connectors you don't need)
+3. Restart Claude Code
+
+See `.claude/mcp.json.example` for the full configuration template.
 
 ---
 
@@ -182,6 +191,8 @@ Every article follows these rules automatically:
 │   ├── geo-optimizer/                 # 12-point GEO checklist
 │   ├── quality-gate/                  # 0-100 scoring across 5 dimensions
 │   └── cms-publisher/                 # CMS publishing or Markdown export
+├── .claude/
+│   └── mcp.json.example               # MCP connector configuration template
 ├── workflows/
 │   ├── 01-article-production.md       # Keyword to published draft
 │   ├── 02-keyword-discovery.md        # Seed topics to keyword map
@@ -191,7 +202,8 @@ Every article follows these rules automatically:
 │   │   └── context/                   # Pre-filled context files
 │   └── sample-output/                 # Example brief, article, quality report
 └── assets/
-    └── workflow-bpmn.html             # Visual workflow diagram
+    ├── workflow-bpmn.html             # Interactive workflow diagram
+    └── workflow.png                   # Workflow diagram (embedded in README)
 ```
 
 ---

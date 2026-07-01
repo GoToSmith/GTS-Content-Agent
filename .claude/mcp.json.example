@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "ahrefs": {
+      "command": "npx",
+      "args": ["-y", "ahrefs-mcp"],
+      "env": {
+        "AHREFS_API_KEY": "your-api-key"
+      }
+    },
+    "semrush": {
+      "command": "npx",
+      "args": ["-y", "semrush-mcp"],
+      "env": {
+        "SEMRUSH_API_KEY": "your-api-key"
+      }
+    },
+    "webflow": {
+      "command": "npx",
+      "args": ["-y", "webflow-mcp"],
+      "env": {
+        "WEBFLOW_API_TOKEN": "your-token"
+      }
+    },
+    "wordpress": {
+      "command": "npx",
+      "args": ["-y", "wordpress-mcp"],
+      "env": {
+        "WORDPRESS_URL": "https://your-site.com",
+        "WORDPRESS_USERNAME": "your-username",
+        "WORDPRESS_APP_PASSWORD": "your-app-password"
+      }
+    },
+    "google-search-console": {
+      "command": "npx",
+      "args": ["-y", "google-search-console-mcp"],
+      "env": {
+        "GSC_CREDENTIALS_PATH": "./gsc-credentials.json"
+      }
+    }
+  }
+}
