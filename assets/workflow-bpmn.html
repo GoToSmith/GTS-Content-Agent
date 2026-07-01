@@ -1,0 +1,200 @@
+<title>SEO Content Engine - Workflow Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 20px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .subtitle { font-size: 13px; color: #64748b; margin-bottom: 28px; }
+  .diagram-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  svg { display: block; }
+  .lane-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; fill: #fff; }
+  .node-text { font-size: 10px; fill: #1e293b; text-anchor: middle; dominant-baseline: central; font-weight: 500; }
+  .node-text-sm { font-size: 9px; fill: #475569; text-anchor: middle; dominant-baseline: central; }
+  .gate-text { font-size: 9.5px; fill: #92400e; text-anchor: middle; dominant-baseline: central; font-weight: 600; }
+  .connector-text { font-size: 9px; fill: #4338ca; text-anchor: middle; dominant-baseline: central; font-weight: 500; }
+  .flow-label { font-size: 8px; fill: #64748b; text-anchor: middle; font-style: italic; }
+  .score-label { font-size: 8px; font-weight: 700; text-anchor: middle; }
+  .legend { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #475569; }
+  .legend-swatch { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+</style>
+
+<div class="container">
+  <h1>Article Production Workflow</h1>
+  <p class="subtitle">3-lane BPMN: User provides keyword and reviews. Engine writes, optimizes, scores. Connectors enhance with real data.</p>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 1140 420" width="1140" height="420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#94a3b8"/>
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#dc2626"/>
+        </marker>
+        <marker id="arrow-dash" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#6366f1" fill-opacity="0.6"/>
+        </marker>
+        <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+          <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+        </filter>
+      </defs>
+
+      <!-- Lane backgrounds -->
+      <!-- User lane -->
+      <rect x="0" y="0" width="1140" height="110" rx="0" fill="#fef3c7" fill-opacity="0.4" stroke="#fbbf24" stroke-opacity="0.3"/>
+      <rect x="0" y="0" width="36" height="110" fill="#f59e0b" rx="0"/>
+      <text x="18" y="55" class="lane-label" text-anchor="middle" transform="rotate(-90,18,55)">USER</text>
+
+      <!-- Engine lane -->
+      <rect x="0" y="114" width="1140" height="170" rx="0" fill="#e0f2fe" fill-opacity="0.3" stroke="#0891b2" stroke-opacity="0.2"/>
+      <rect x="0" y="114" width="36" height="170" fill="#0891b2"/>
+      <text x="18" y="199" class="lane-label" text-anchor="middle" transform="rotate(-90,18,199)">ENGINE</text>
+
+      <!-- Connectors lane -->
+      <rect x="0" y="288" width="1140" height="110" rx="0" fill="#eef2ff" fill-opacity="0.4" stroke="#6366f1" stroke-opacity="0.2"/>
+      <rect x="0" y="288" width="36" height="110" fill="#6366f1"/>
+      <text x="18" y="343" class="lane-label" text-anchor="middle" transform="rotate(-90,18,343)">MCP</text>
+
+      <!-- ===== USER LANE ===== -->
+      <!-- Start event -->
+      <circle cx="70" cy="55" r="14" fill="#fff" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="70" cy="55" r="5" fill="#f59e0b"/>
+
+      <!-- Provide Keyword -->
+      <rect x="108" y="32" width="110" height="46" rx="8" fill="#fff" stroke="#d97706" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="163" y="52" class="node-text" fill="#92400e">Provide</text>
+      <text x="163" y="64" class="node-text" fill="#92400e">Keyword</text>
+
+      <!-- Review Brief (gate) -->
+      <rect x="370" y="28" width="120" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+      <text x="430" y="48" class="gate-text">Review Gate #1</text>
+      <text x="430" y="61" class="node-text-sm">Approve Brief</text>
+
+      <!-- Review Article (gate) -->
+      <rect x="830" y="28" width="120" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+      <text x="890" y="48" class="gate-text">Review Gate #2</text>
+      <text x="890" y="61" class="node-text-sm">Approve Article</text>
+
+      <!-- End event -->
+      <circle cx="1100" cy="55" r="14" fill="#fff" stroke="#f59e0b" stroke-width="3"/>
+      <circle cx="1100" cy="55" r="6" fill="#f59e0b"/>
+
+      <!-- User flow arrows -->
+      <line x1="84" y1="55" x2="106" y2="55" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="950" y1="55" x2="1084" y2="55" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- ===== ENGINE LANE ===== -->
+      <!-- Load Context -->
+      <rect x="108" y="144" width="100" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="158" y="162" class="node-text">Load Context</text>
+      <text x="158" y="174" class="node-text-sm">6 files</text>
+
+      <!-- Generate Brief -->
+      <rect x="240" y="144" width="100" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="290" y="162" class="node-text">Generate</text>
+      <text x="290" y="174" class="node-text-sm">Brief</text>
+
+      <!-- Write Article -->
+      <rect x="500" y="144" width="100" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="550" y="162" class="node-text">Write</text>
+      <text x="550" y="174" class="node-text-sm">Article</text>
+
+      <!-- SEO 25pt -->
+      <rect x="620" y="144" width="70" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="655" y="162" class="node-text">SEO</text>
+      <text x="655" y="174" class="node-text-sm">25-point</text>
+
+      <!-- GEO 12pt -->
+      <rect x="706" y="144" width="70" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="741" y="162" class="node-text">GEO</text>
+      <text x="741" y="174" class="node-text-sm">12-point</text>
+
+      <!-- Quality Gate (diamond) -->
+      <polygon points="810,165 840,140 870,165 840,190" fill="#fff" stroke="#0891b2" stroke-width="2" filter="url(#shadow)"/>
+      <text x="840" y="163" class="node-text" font-size="9">QG</text>
+      <text x="840" y="174" class="node-text-sm" font-size="8">0-100</text>
+
+      <!-- Publish -->
+      <rect x="975" y="144" width="100" height="42" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="1025" y="162" class="node-text">Publish</text>
+      <text x="1025" y="174" class="node-text-sm">to CMS</text>
+
+      <!-- Update Clusters -->
+      <rect x="1025" y="216" width="90" height="36" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.2" filter="url(#shadow)"/>
+      <text x="1070" y="237" class="node-text-sm">Update Clusters</text>
+
+      <!-- Engine flow arrows -->
+      <!-- Keyword to Load Context (vertical from user) -->
+      <line x1="163" y1="78" x2="163" y2="142" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="208" y1="165" x2="238" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="340" y1="165" x2="360" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Brief to user review gate -->
+      <line x1="370" y1="165" x2="370" y2="82" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- User gate back down to Write -->
+      <path d="M 490,55 L 500,55 L 500,142" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+      <line x1="600" y1="165" x2="618" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="690" y1="165" x2="704" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="776" y1="165" x2="808" y2="165" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- QG pass path: up to review gate 2 -->
+      <path d="M 870,165 L 890,165 L 890,84" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <text x="893" y="120" class="score-label" fill="#16a34a" text-anchor="start">>=80</text>
+
+      <!-- QG fail path: loop back to Write -->
+      <path d="M 840,190 L 840,230 L 520,230 L 520,188" stroke="#dc2626" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow-red)"/>
+      <text x="680" y="224" class="score-label" fill="#dc2626">&lt;80 (max 3x)</text>
+
+      <!-- Review gate 2 down to Publish -->
+      <path d="M 890,82 L 960,82 L 960,165 L 973,165" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+      <!-- Publish to Update Clusters -->
+      <path d="M 1070,186 L 1070,214" stroke="#94a3b8" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+
+      <!-- Publish up to End -->
+      <path d="M 1075,165 L 1100,165 L 1100,71" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+      <!-- ===== CONNECTORS LANE ===== -->
+      <!-- Ahrefs/SEMrush -->
+      <rect x="200" y="320" width="120" height="40" rx="6" fill="#fff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="260" y="337" class="connector-text">Ahrefs / SEMrush</text>
+      <text x="260" y="349" class="node-text-sm" fill="#6366f1">keyword data</text>
+
+      <!-- CMS -->
+      <rect x="920" y="320" width="130" height="40" rx="6" fill="#fff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="985" y="337" class="connector-text">Webflow / WordPress</text>
+      <text x="985" y="349" class="node-text-sm" fill="#6366f1">CMS publish</text>
+
+      <!-- GSC -->
+      <rect x="560" y="320" width="150" height="40" rx="6" fill="#fff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="635" y="337" class="connector-text">Google Search Console</text>
+      <text x="635" y="349" class="node-text-sm" fill="#6366f1">performance data</text>
+
+      <!-- Dashed message flows between lanes -->
+      <!-- Brief to Ahrefs -->
+      <line x1="260" y1="186" x2="260" y2="318" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.5" marker-end="url(#arrow-dash)"/>
+      <!-- CMS from Publish -->
+      <line x1="1010" y1="186" x2="1000" y2="318" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,3" stroke-opacity="0.5" marker-end="url(#arrow-dash)"/>
+
+      <!-- "optional" labels on dashed lines -->
+      <text x="230" y="260" class="flow-label" fill="#6366f1" transform="rotate(-90,230,260)">enhances brief</text>
+      <text x="1020" y="260" class="flow-label" fill="#6366f1" transform="rotate(-90,1020,260)">draft publish</text>
+
+      <!-- Timing annotation -->
+      <rect x="44" y="400" width="1090" height="18" rx="3" fill="#e2e8f0" fill-opacity="0.5"/>
+      <text x="570" y="412" font-size="10" fill="#64748b" text-anchor="middle" font-family="-apple-system, sans-serif">
+        Claude: ~45 min autonomous  |  User: ~15 min (2 review gates)  |  MCP connectors: optional, improve quality
+      </text>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:#f59e0b"></div> User actions and review gates</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#0891b2"></div> Engine (autonomous processing)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#6366f1"></div> MCP Connectors (optional)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#dc2626"></div> Quality gate fail loop (max 3x)</div>
+  </div>
+</div>
