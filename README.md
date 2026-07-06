@@ -1,4 +1,4 @@
-# SEO Content Engine
+# GTS Content Agent
 
 **Your articles rank on page 3. AI search doesn't cite you. This fixes both.**
 
